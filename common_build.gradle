@@ -1,0 +1,82 @@
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi-v7a'
+            universalApk false
+        }
+    }
+
+    signingConfigs {
+        release {
+//            keyAlias ''
+//            keyPassword ''
+//            storeFile file('../../xxx.jks')
+//            storePassword ''
+        }
+        debug {
+//            keyAlias ''
+//            keyPassword ''
+//            storeFile file('../../xxx.jks')
+//            storePassword ''
+        }
+    }
+
+    compileSdkVersion rootProject.ext.android["COMPILE_SDK_VERSION"]
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["MIN_SDK_VERSION"]
+        targetSdkVersion rootProject.ext.android["TARGET_SDK_VERSION"]
+
+        multiDexEnabled true
+        resConfigs "zh"
+        consumerProguardFiles 'proguard-rules.pro'
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+        flavorDimensions "versionCode"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+
+
+}
+
+
+dependencies {
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    annotationProcessor (rootProject.ext.dependencies["butterknife-compiler"]){
+        exclude module: 'support-annotations'
+    }
+}

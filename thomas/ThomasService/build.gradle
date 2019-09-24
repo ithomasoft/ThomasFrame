@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["COMPILE_SDK_VERSION"]
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["MIN_SDK_VERSION"]
+        targetSdkVersion rootProject.ext.android["TARGET_SDK_VERSION"]
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compileOnly  (rootProject.ext.dependencies["arouter-api"]) {
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+    }
+
+}
+

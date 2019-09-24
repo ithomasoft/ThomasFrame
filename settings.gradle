@@ -1,0 +1,4 @@
+include ':app:demo'
+include':base:ThomasBase'
+include ':thomas:ThomasRes', ':thomas:ThomasService', ':thomas:ThomasSDK'
+rootProject.name='ThomasFrame'
