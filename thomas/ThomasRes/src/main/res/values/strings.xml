@@ -1,3 +1,4 @@
 <resources>
-
+    <string name="thomas_loading">加载中...</string>
+    <string name="thomas_no_data">暂无数据</string>
 </resources>

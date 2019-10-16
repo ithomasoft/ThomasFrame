@@ -43,7 +43,7 @@ ext {
             "glide"                   : 'com.github.bumptech.glide:glide:4.10.0',
             "luban"                   : 'top.zibin:Luban:1.1.8',
 
-            "lottie"                  : 'com.airbnb.android:lottie:3.0.7',
+            "lottie"                  : 'com.airbnb.android:lottie:3.1.0',
             "mapbox"                  : 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.3.0',
 
             "video-player"            : 'cn.jzvd:jiaozivideoplayer:7.0.5',

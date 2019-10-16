@@ -1,0 +1,17 @@
+apply plugin: 'com.android.application'
+apply from: "../../common_build.gradle"
+
+android {
+    defaultConfig {
+        versionCode rootProject.ext.app["VERSION_CODE"]
+        versionName rootProject.ext.app["VERSION_NAME"]
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':modules:mLogin')
+    implementation project(path: ':thomas:ThomasSDK')
+
+}

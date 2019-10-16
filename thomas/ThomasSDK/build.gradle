@@ -11,7 +11,7 @@ android {
 dependencies {
     api project(path: ':thomas:ThomasRes')
     api project(path: ':thomas:ThomasService')
-    api project(path: ':base:ThomasBase')
+    api 'com.github.ithomasoft:ThomasCore:1.0.1'
     api rootProject.ext.dependencies["appcompat"]
     api rootProject.ext.dependencies["constraint-layout"]
     api rootProject.ext.dependencies["eventbus"]
@@ -19,6 +19,7 @@ dependencies {
     api rootProject.ext.dependencies["arouter-api"]
     api rootProject.ext.dependencies["butterknife"]
     api rootProject.ext.dependencies["fastjson"]
+    implementation 'com.tencent.bugly:crashreport_upgrade:1.4.2'
     implementation rootProject.ext.dependencies["luban"]
     debugImplementation rootProject.ext.dependencies["doraemonkit"]
     releaseImplementation rootProject.ext.dependencies["doraemonkit-no-op"]

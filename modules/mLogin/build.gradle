@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+apply from: "../../common_build.gradle"
+
+android {
+    defaultConfig {
+        if (!login_is_module.toBoolean()) {
+            applicationId "com.thomas.andfun.login"
+        }
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    sourceSets {
+        main {
+            if (login_is_module.toBoolean()) {
+                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            }
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':thomas:ThomasSDK')
+}
