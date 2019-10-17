@@ -1,4 +1,4 @@
+include ':modules:mTodo', ':modules:mLogin', ':modules:mHome'
 include ':app:demo', ':app:andfun'
-include ':modules:mLogin', ':modules:mHome'
 include ':thomas:ThomasRes', ':thomas:ThomasService', ':thomas:ThomasSDK'
 rootProject.name='ThomasFrame'

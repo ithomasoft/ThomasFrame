@@ -11,7 +11,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':modules:mLogin')
     implementation project(path: ':thomas:ThomasSDK')
+    implementation project(path: ':modules:mTodo')
+    implementation project(path: ':modules:mHome')
+    implementation project(path: ':modules:mLogin')
 
 }

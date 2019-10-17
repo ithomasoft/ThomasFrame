@@ -1,15 +1,15 @@
 package com.thomas.andfun;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
-import com.thomas.core.utils.Utils;
-import com.thomas.sdk.helper.LoadingHelper;
+import androidx.annotation.Nullable;
+
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.ui.ThomasActivity;
 
+@Route(path = RouterHub.ROUTER_SPLASH)
 public class SplashActivity extends ThomasActivity {
 
     @Override

@@ -1,4 +1,8 @@
-apply plugin: 'com.android.library'
+if (login_is_module.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
 apply from: "../../common_build.gradle"
 
 android {
@@ -8,7 +12,11 @@ android {
         }
         versionCode 1
         versionName "1.0.0"
+
     }
+
+    //resourcePrefix "mLogin_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+
 
     sourceSets {
         main {
@@ -25,5 +33,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':thomas:ThomasSDK')
+	implementation project(path: ':thomas:ThomasSDK')	
 }
