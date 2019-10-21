@@ -12,4 +12,9 @@ public interface RouterHub {
      * 启动页
      */
     String ROUTER_SPLASH = "/splash/splash";
+
+    /**
+     * 主页
+     */
+    String ROUTER_HOME = "/home/home";
 }

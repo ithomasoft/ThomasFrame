@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name="com.thomas.sdk.Thomas"
-        android:theme="@style/AppTheme">
+        android:theme="@style/thomas_AppTheme">
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

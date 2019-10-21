@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="colorPrimary">@android:color/holo_blue_light</color>
+    <color name="colorPrimaryDark">@android:color/holo_blue_light</color>
+    <color name="colorAccent">@android:color/holo_blue_light</color>
+    <color name="ic_launcher_background">#00CCFF</color>
+
     <color name="thomas_color_app_background">#F3F3F3</color>
     <color name="thomas_color_normal_text">#333333</color>
 

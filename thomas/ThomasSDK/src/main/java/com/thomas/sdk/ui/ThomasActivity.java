@@ -13,6 +13,7 @@ import androidx.appcompat.app.SkinAppCompatDelegateImpl;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.thomas.core.ui.BaseActivity;
 import com.thomas.core.utils.ActivityUtils;
+import com.thomas.core.utils.BarUtils;
 import com.thomas.sdk.helper.EventHelper;
 import com.thomas.sdk.helper.HttpHelper;
 import com.thomas.sdk.helper.StatusHelper;

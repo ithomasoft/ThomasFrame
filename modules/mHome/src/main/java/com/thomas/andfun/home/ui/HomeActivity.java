@@ -1,20 +1,21 @@
 package com.thomas.andfun.home.ui;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.thomas.sdk.ui.ThomasMvpActivity;
-import com.thomas.andfun.home.ui.contract.HomeContract;
-import com.thomas.andfun.home.ui.presenter.HomePresenter;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.thomas.andfun.home.R;
-import com.thomas.andfun.home.R2;
-
-
-import butterknife.BindView;
+import com.thomas.core.utils.BarUtils;
+import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.ui.ThomasActivity;
 
 /**
  * @author Thomas
@@ -23,18 +24,19 @@ import butterknife.BindView;
  * @updatelog
  * @since
  */
-@Route(path = "")//TODO 添加路由path
-public class HomeActivity extends ThomasMvpActivity<HomePresenter> implements HomeContract.View {
-
-
-    @Override
-    protected HomePresenter createPresenter() {
-        return new HomePresenter();
-    }
+@Route(path = RouterHub.ROUTER_HOME)
+public class HomeActivity extends ThomasActivity {
+    BottomNavigationView navView;
 
     @Override
     public boolean isNeedRegister() {
         return false;
+    }
+
+    @Override
+    public void initStatusBar() {
+        super.initStatusBar();
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(mActivity, android.R.color.black), false);
     }
 
     @Override
@@ -50,6 +52,9 @@ public class HomeActivity extends ThomasMvpActivity<HomePresenter> implements Ho
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
 
+        navView = findViewById(R.id.nav_view);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupWithNavController(navView, navController);
     }
 
     @Override
@@ -57,9 +62,4 @@ public class HomeActivity extends ThomasMvpActivity<HomePresenter> implements Ho
 
     }
 
-
-    @Override
-    public void onFailed(String failed) {
-
-    }
 }

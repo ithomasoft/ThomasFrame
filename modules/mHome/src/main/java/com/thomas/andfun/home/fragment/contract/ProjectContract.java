@@ -1,4 +1,4 @@
-package com.thomas.andfun.todo.ui.contract;
+package com.thomas.andfun.home.fragment.contract;
 
 import com.thomas.core.mvp.IBaseMvpModel;
 import com.thomas.core.mvp.IBaseMvpView;
@@ -10,7 +10,7 @@ import com.thomas.core.mvp.IBaseMvpView;
  * @updatelog
  * @since
  */
-public interface HomeContract {
+public interface ProjectContract {
     interface Model extends IBaseMvpModel {
     }
 

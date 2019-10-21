@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import android.view.View;
 
+import com.thomas.core.utils.BarUtils;
 import com.thomas.sdk.ui.ThomasMvpFragment;
 import com.thomas.andfun.home.fragment.contract.NewsContract;
 import com.thomas.andfun.home.fragment.presenter.NewsPresenter;
@@ -41,6 +42,7 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     @Override
     public int bindLayout() {
+        BarUtils.setStatusBarLightMode(mActivity, true);
         return R.layout.fragment_news;
     }
 

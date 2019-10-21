@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_news">
+
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.thomas.andfun.home.fragment.NewsFragment"
+        android:label="@string/title_news"
+        app:defaultNavHost="false"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/navigation_knowledge"
+        android:name="com.thomas.andfun.home.fragment.KnowledgeFragment"
+        android:label="@string/title_knowledge"
+        app:defaultNavHost="false"
+        tools:layout="@layout/fragment_knowledge" />
+
+    <fragment
+        android:id="@+id/navigation_project"
+        android:name="com.thomas.andfun.home.fragment.ProjectFragment"
+        android:label="@string/title_project"
+        app:defaultNavHost="false"
+        tools:layout="@layout/fragment_project" />
+
+
+    <fragment
+        android:id="@+id/navigation_mine"
+        android:name="com.thomas.andfun.home.fragment.MineFragment"
+        android:label="@string/title_mine"
+        tools:layout="@layout/fragment_mine"
+        app:defaultNavHost="false" />
+</navigation>

@@ -6,13 +6,11 @@ import androidx.annotation.NonNull;
 
 import android.view.View;
 
+import com.thomas.core.utils.BarUtils;
 import com.thomas.sdk.ui.ThomasMvpFragment;
-import com.thomas.andfun.home.fragment.contract.PrejectContract;
-import com.thomas.andfun.home.fragment.presenter.PrejectPresenter;
+import com.thomas.andfun.home.fragment.contract.ProjectContract;
+import com.thomas.andfun.home.fragment.presenter.ProjectPresenter;
 import com.thomas.andfun.home.R;
-
-
-import butterknife.BindView;
 
 /**
  * @author Thomas
@@ -21,12 +19,12 @@ import butterknife.BindView;
  * @updatelog
  * @since
  */
-public class PrejectFragment extends ThomasMvpFragment<PrejectPresenter> implements PrejectContract.View {
+public class ProjectFragment extends ThomasMvpFragment<ProjectPresenter> implements ProjectContract.View {
 
 
     @Override
-    protected PrejectPresenter createPresenter() {
-        return new PrejectPresenter();
+    protected ProjectPresenter createPresenter() {
+        return new ProjectPresenter();
     }
 
     @Override
@@ -41,7 +39,8 @@ public class PrejectFragment extends ThomasMvpFragment<PrejectPresenter> impleme
 
     @Override
     public int bindLayout() {
-        return R.layout.fragment_preject;
+        BarUtils.setStatusBarLightMode(mActivity, true);
+        return R.layout.fragment_project;
     }
 
     @Override

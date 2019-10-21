@@ -1,6 +1,6 @@
 package com.thomas.andfun.home.fragment.model;
 
-import com.thomas.andfun.home.fragment.contract.PrejectContract;
+import com.thomas.andfun.home.fragment.contract.ProjectContract;
 
 /**
  * @author Thomas
@@ -9,5 +9,5 @@ import com.thomas.andfun.home.fragment.contract.PrejectContract;
  * @updatelog
  * @since
  */
-public class PrejectModel implements PrejectContract.Model {
+public class ProjectModel implements ProjectContract.Model {
 }

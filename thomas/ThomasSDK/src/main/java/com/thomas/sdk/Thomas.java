@@ -88,6 +88,11 @@ public class Thomas extends BaseApplication {
     }
 
     @Override
+    protected boolean configDebug() {
+        return BuildConfig.DEBUG;
+    }
+
+    @Override
     public void initCrashReport() {
         Bugly.init(this, "26bc13f96b", BuildConfig.DEBUG);
     }

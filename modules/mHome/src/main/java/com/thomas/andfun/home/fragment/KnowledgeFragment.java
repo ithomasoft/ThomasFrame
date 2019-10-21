@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import android.view.View;
 
+import com.thomas.core.utils.BarUtils;
 import com.thomas.sdk.ui.ThomasMvpFragment;
 import com.thomas.andfun.home.fragment.contract.KnowledgeContract;
 import com.thomas.andfun.home.fragment.presenter.KnowledgePresenter;
@@ -41,6 +42,7 @@ public class KnowledgeFragment extends ThomasMvpFragment<KnowledgePresenter> imp
 
     @Override
     public int bindLayout() {
+        BarUtils.setStatusBarLightMode(mActivity, true);
         return R.layout.fragment_knowledge;
     }
 
