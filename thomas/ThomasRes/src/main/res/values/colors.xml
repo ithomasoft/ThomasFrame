@@ -10,5 +10,8 @@
     <color name="thomas_color_normal_text">#333333</color>
     <color name="thomas_color_hint_text">#777777</color>
     <color name="thomas_color_driver">#DCDCDC</color>
+    <color name="thomas_color_app_title_text">#FFFFFF</color>
+    <color name="thomas_color_app_title_background">@color/colorAccent</color>
+
 
 </resources>

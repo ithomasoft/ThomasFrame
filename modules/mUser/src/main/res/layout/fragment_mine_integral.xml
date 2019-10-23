@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="64dp"
+    android:layout_marginEnd="64dp"
+    android:background="@drawable/thomas_shape_r8_white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/thomas_app_content_size"
+        android:textColor="@color/thomas_color_normal_text"
+        android:text="让学习成为一种习惯" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_rank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        tools:text="666"
+        android:textSize="32dp"
+        android:textColor="@android:color/holo_red_light"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/thomas_app_small_size"
+        android:textColor="@color/thomas_color_hint_text"
+        android:text="当前排名" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_point"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        tools:text="1024"
+        android:textColor="@color/colorAccent"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/thomas_app_small_size"
+        android:textColor="@color/thomas_color_hint_text"
+        android:text="总积分" />
+
+
+    <com.allen.library.SuperButton
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:minWidth="120dp"
+        android:text="我知道啦"
+        android:textColor="@android:color/white"
+        app:sCornersRadius="64dp"
+        app:sSelectorNormalColor="@color/ic_launcher_background"
+        app:sSelectorPressedColor="@color/colorAccent"
+        app:sShapeCornersRadius="90dp"
+        app:sUseSelector="true" />
+</androidx.appcompat.widget.LinearLayoutCompat>

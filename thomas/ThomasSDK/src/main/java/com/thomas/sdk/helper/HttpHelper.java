@@ -48,6 +48,14 @@ public class HttpHelper {
         Kalle.post(url).params(params).perform(thomasCallback);
     }
 
+    public static void post(String url, BaseThomasCallback thomasCallback) {
+        Kalle.post(url).perform(thomasCallback);
+    }
+
+    public static void get(String url, BaseThomasCallback thomasCallback) {
+        Kalle.get(url).perform(thomasCallback);
+    }
+
 
     public static void cancelRequest(Activity activity) {
         Kalle.cancel(activity.getClass());

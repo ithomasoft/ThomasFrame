@@ -88,14 +88,14 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
         }
 
         if (clickId == R.id.btn_integral) {
-            ToastUtils.showLong("我的积分");
+            ARouterHelper.startActivity(RouterHub.ROUTER_INTEGRAL);
         }
 
         if (clickId == R.id.btn_collection) {
-            ToastUtils.showLong("我的收藏");
+            ARouterHelper.startActivity(RouterHub.ROUTER_COLLECTION);
         }
         if (clickId == R.id.btn_share) {
-            ToastUtils.showLong("我的分享");
+            ARouterHelper.startActivity(RouterHub.ROUTER_SHARE);
         }
         if (clickId == R.id.btn_scan) {
             ToastUtils.showLong("超级扫码");
