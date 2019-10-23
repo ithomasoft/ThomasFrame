@@ -8,6 +8,7 @@
 
     <color name="thomas_color_app_background">#F3F3F3</color>
     <color name="thomas_color_normal_text">#333333</color>
+    <color name="thomas_color_hint_text">#777777</color>
     <color name="thomas_color_driver">#DCDCDC</color>
 
 </resources>

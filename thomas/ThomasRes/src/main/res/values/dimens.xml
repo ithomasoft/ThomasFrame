@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="thomas_app_title_size">18dp</dimen>
+    <dimen name="thomas_app_content_size">16dp</dimen>
+    <dimen name="thomas_app_small_size">14dp</dimen>
+    <dimen name="thomas_app_button_size">16dp</dimen>
+</resources>

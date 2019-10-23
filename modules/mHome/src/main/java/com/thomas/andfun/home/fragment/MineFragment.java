@@ -6,15 +6,16 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 
+import com.allen.library.SuperTextView;
 import com.thomas.andfun.home.R;
 import com.thomas.andfun.home.fragment.contract.MineContract;
 import com.thomas.andfun.home.fragment.presenter.MinePresenter;
 import com.thomas.core.utils.BarUtils;
-import com.thomas.core.utils.ImageUtils;
-import com.thomas.core.utils.LogUtils;
 import com.thomas.core.utils.ToastUtils;
+import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.ImageHelper;
-import com.thomas.sdk.ui.LazyThomasMvpFragment;
+import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.ThomasMvpFragment;
 
 /**
@@ -27,6 +28,7 @@ import com.thomas.sdk.ui.ThomasMvpFragment;
 public class MineFragment extends ThomasMvpFragment<MinePresenter> implements MineContract.View {
 
     private AppCompatImageView bgMine, ivHead;
+    private SuperTextView tvNickname, btnIntegral;
 
     @Override
     protected MinePresenter createPresenter() {
@@ -53,8 +55,16 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
     public void initView(Bundle savedInstanceState, View contentView) {
         bgMine = findViewById(R.id.bg_mine);
         ivHead = findViewById(R.id.iv_head);
+        btnIntegral = findViewById(R.id.btn_integral);
+        tvNickname = findViewById(R.id.tv_nick_name);
+        if (UserHelper.isLogin()) {
+            tvNickname.getCenterTextView().setText(UserHelper.getNickname());
+            btnIntegral.setVisibility(View.VISIBLE);
+        } else {
+            btnIntegral.setVisibility(View.GONE);
+        }
         ImageHelper.showSimpleWithBlur(bgMine, R.drawable.bg_mine);
-        applyThomasClickListener(findViewById(R.id.tv_nick_name), findViewById(R.id.btn_collection), findViewById(R.id.btn_share)
+        applyThomasClickListener(findViewById(R.id.tv_nick_name), findViewById(R.id.btn_integral), findViewById(R.id.btn_collection), findViewById(R.id.btn_share)
                 , findViewById(R.id.btn_scan), findViewById(R.id.btn_todo)
                 , findViewById(R.id.btn_setting), findViewById(R.id.btn_about));
     }
@@ -69,7 +79,16 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
         int clickId = view.getId();
 
         if (clickId == R.id.tv_nick_name) {
-            ToastUtils.showLong("登录");
+            if (UserHelper.isLogin()) {
+                ARouterHelper.startActivity(RouterHub.ROUTER_USER);
+            } else {
+                ARouterHelper.startActivity(RouterHub.ROUTER_LOGIN);
+            }
+
+        }
+
+        if (clickId == R.id.btn_integral) {
+            ToastUtils.showLong("我的积分");
         }
 
         if (clickId == R.id.btn_collection) {
@@ -94,6 +113,18 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
 
     @Override
     public void onFailed(String failed) {
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (UserHelper.isLogin()) {
+            tvNickname.getCenterTextView().setText(UserHelper.getNickname());
+            btnIntegral.setVisibility(View.VISIBLE);
+        } else {
+            btnIntegral.setVisibility(View.GONE);
+        }
 
     }
 }

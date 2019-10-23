@@ -1,8 +1,12 @@
 package com.thomas.andfun.login.ui.presenter;
 
+import com.thomas.andfun.login.bean.LoginBean;
 import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.login.ui.contract.LoginContract;
 import com.thomas.andfun.login.ui.model.LoginModel;
+import com.thomas.sdk.helper.HttpHelper;
+import com.thomas.sdk.kalle.BaseThomasCallback;
+import com.yanzhenjie.kalle.Params;
 
 /**
  * @author Thomas
@@ -19,4 +23,22 @@ public class LoginPresenter extends BaseMvpPresenter<LoginContract.Model, LoginC
     }
 
 
+    @Override
+    public void login(String username, String password) {
+
+        if (isViewAttached()) {
+            getModel().login(username, password, new BaseThomasCallback<LoginBean>() {
+                @Override
+                protected void onSuccess(LoginBean succeed) {
+                    getView().onLoginSuccess(succeed);
+                }
+
+                @Override
+                protected void onFailed(String failed) {
+                    getView().onFailed(failed);
+                }
+            });
+        }
+
+    }
 }

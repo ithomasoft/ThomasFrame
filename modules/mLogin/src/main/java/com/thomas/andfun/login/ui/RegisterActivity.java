@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.ui.ThomasMvpActivity;
 import com.thomas.andfun.login.ui.contract.RegisterContract;
 import com.thomas.andfun.login.ui.presenter.RegisterPresenter;
@@ -23,7 +24,7 @@ import butterknife.BindView;
  * @updatelog
  * @since
  */
-@Route(path = "")//TODO 添加路由path
+@Route(path = RouterHub.ROUTER_REGISTER)
 public class RegisterActivity extends ThomasMvpActivity<RegisterPresenter> implements RegisterContract.View {
 
 
