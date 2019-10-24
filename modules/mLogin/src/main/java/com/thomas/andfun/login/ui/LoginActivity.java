@@ -22,6 +22,7 @@ import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.helper.LoadingHelper;
@@ -150,6 +151,7 @@ public class LoginActivity extends ThomasMvpActivity<LoginPresenter> implements 
         UserHelper.setIcon(user.getIcon());
         UserHelper.setNickname(user.getNickname());
         UserHelper.setType(user.getType());
+        SingleCall.getInstance().doCall();
         ActivityUtils.finishActivity(mActivity);
     }
 }

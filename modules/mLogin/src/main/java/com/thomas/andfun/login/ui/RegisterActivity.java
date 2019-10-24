@@ -20,6 +20,7 @@ import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.UserHelper;
@@ -140,6 +141,7 @@ public class RegisterActivity extends ThomasMvpActivity<RegisterPresenter> imple
         UserHelper.setIcon(user.getIcon());
         UserHelper.setNickname(user.getNickname());
         UserHelper.setType(user.getType());
+        SingleCall.getInstance().doCall();
         ActivityUtils.finishActivity(LoginActivity.class);
         ActivityUtils.finishActivity(mActivity);
     }

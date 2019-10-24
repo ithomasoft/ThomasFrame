@@ -31,7 +31,7 @@ public class IntegralPresenter extends BaseMvpPresenter<IntegralContract.Model, 
                     getView().onMoreData(succeed.getCurPage() < succeed.getPageCount());
                     if (succeed.getDatas() != null && succeed.getDatas().size() > 0) {
                         getView().onSuccess(succeed.getDatas());
-                    } else {
+                    } else if (page == 1) {
                         getView().onEmpty();
                     }
                 }

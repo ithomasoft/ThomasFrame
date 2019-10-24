@@ -25,6 +25,7 @@ import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.helper.LoadingHelper;
+import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
 
 import java.util.ArrayList;
@@ -84,6 +85,7 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
                 ActivityUtils.finishActivity(mActivity);
             }
         });
+        holder = StatusHelper.getDefault().wrap(smartRefreshLayout);
         smartRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
@@ -131,7 +133,7 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
 
     @Override
     public void onEmpty() {
-
+        holder.showEmpty();
     }
 
     @Override

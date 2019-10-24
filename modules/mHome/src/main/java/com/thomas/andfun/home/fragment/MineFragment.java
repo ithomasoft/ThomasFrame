@@ -8,11 +8,15 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import com.allen.library.SuperTextView;
 import com.thomas.andfun.home.R;
+import com.thomas.andfun.home.action.MyCollectedAction;
+import com.thomas.andfun.home.action.MySharedAction;
 import com.thomas.andfun.home.fragment.contract.MineContract;
 import com.thomas.andfun.home.fragment.presenter.MinePresenter;
+import com.thomas.andfun.home.valid.LoginValid;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.ImageHelper;
 import com.thomas.sdk.helper.UserHelper;
@@ -92,10 +96,13 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
         }
 
         if (clickId == R.id.btn_collection) {
-            ARouterHelper.startActivity(RouterHub.ROUTER_COLLECTION);
+
+            SingleCall.getInstance().addAction(new MyCollectedAction()).addValid(new LoginValid()).doCall();
+
         }
         if (clickId == R.id.btn_share) {
-            ARouterHelper.startActivity(RouterHub.ROUTER_SHARE);
+            SingleCall.getInstance().addAction(new MySharedAction()).addValid(new LoginValid()).doCall();
+
         }
         if (clickId == R.id.btn_scan) {
             ToastUtils.showLong("超级扫码");
