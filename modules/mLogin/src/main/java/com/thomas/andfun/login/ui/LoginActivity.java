@@ -23,6 +23,7 @@ import com.thomas.core.utils.BarUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
+import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
@@ -131,7 +132,7 @@ public class LoginActivity extends ThomasMvpActivity<LoginPresenter> implements 
     }
 
     private void showForgetTips() {
-        ToastUtils.showShort("请联系管理员");
+        DialogHelper.showTipsCenter("您可以通过以下途径找回密码：发送您的用户名和邮箱到623565791@qq.com邮箱。");
     }
 
     @Override

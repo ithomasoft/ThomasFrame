@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.LogUtils;
 import com.thomas.core.utils.StringUtils;
 import com.thomas.sdk.R;

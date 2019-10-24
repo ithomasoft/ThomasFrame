@@ -73,6 +73,7 @@ public class ThomasStatusView extends LinearLayoutCompat implements View.OnClick
                 break;
         }
         ivStatusIcon.setAnimation(image);
+        ivStatusIcon.playAnimation();
         setOnClickListener(onClickListener);
         tvStatusMsg.setText(str);
         setVisibility(show ? View.VISIBLE : View.GONE);

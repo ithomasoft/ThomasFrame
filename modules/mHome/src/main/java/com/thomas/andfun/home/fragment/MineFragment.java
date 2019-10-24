@@ -58,7 +58,7 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
         btnIntegral = findViewById(R.id.btn_integral);
         tvNickname = findViewById(R.id.tv_nick_name);
         if (UserHelper.isLogin()) {
-            tvNickname.getCenterTextView().setText(UserHelper.getNickname());
+            tvNickname.setCenterString(UserHelper.getNickname());
             btnIntegral.setVisibility(View.VISIBLE);
         } else {
             btnIntegral.setVisibility(View.GONE);
@@ -120,9 +120,10 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
     public void onStart() {
         super.onStart();
         if (UserHelper.isLogin()) {
-            tvNickname.getCenterTextView().setText(UserHelper.getNickname());
+            tvNickname.setCenterString(UserHelper.getNickname());
             btnIntegral.setVisibility(View.VISIBLE);
         } else {
+            tvNickname.setCenterString("点击进行登录");
             btnIntegral.setVisibility(View.GONE);
         }
 

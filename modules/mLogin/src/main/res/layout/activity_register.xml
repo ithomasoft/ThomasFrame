@@ -6,4 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".ui.RegisterActivity">
 
+    <com.thomas.res.widget.ThomasTitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:centerText="注册"
+        app:centerTextColor="@color/thomas_color_app_title_text"
+        app:centerTextMarquee="true"
+        app:centerType="textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftImageResource="@drawable/ic_arrow_back"
+        app:leftType="imageButton"
+        app:rightType="none"
+        app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/thomas_shape_r8_white"
+
+        android:elevation="2dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入账号"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:textColorHint="@color/thomas_color_hint_text"
+            android:textColor="@color/thomas_color_normal_text"
+            android:textSize="@dimen/thomas_app_content_size"
+            android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+            android:drawablePadding="4dp"
+            android:padding="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/thomas_color_driver" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入密码"
+            android:textColorHint="@color/thomas_color_hint_text"
+            android:textColor="@color/thomas_color_normal_text"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+            android:drawablePadding="4dp"
+            android:padding="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/thomas_color_driver" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_repassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请再次输入密码"
+            android:textColorHint="@color/thomas_color_hint_text"
+            android:textColor="@color/thomas_color_normal_text"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+            android:drawablePadding="4dp"
+            android:padding="16dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.allen.library.SuperButton
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="注册"
+        android:clickable="false"
+        android:enabled="false"
+        android:elevation="4dp"
+        app:sUseSelector="true"
+        app:sSelectorNormalColor="@color/ic_launcher_background"
+        app:sSelectorPressedColor="@color/colorAccent"
+        app:sSelectorDisableColor="@color/thomas_color_driver"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/thomas_app_button_size"
+        app:sCornersRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_input" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,8 +23,8 @@
         android:id="@+id/tv_status_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16pt"
+        android:padding="16dp"
         android:textColor="@color/thomas_color_normal_text"
-        android:textSize="16pt"
+        android:textSize="16dp"
         tools:text="暂无数据" />
 </androidx.appcompat.widget.LinearLayoutCompat>

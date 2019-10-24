@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MineActivity">
+
+    <com.thomas.res.widget.ThomasTitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:centerText="个人中心"
+        app:centerTextColor="@color/thomas_color_app_title_text"
+        app:centerTextMarquee="true"
+        app:centerType="textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftImageResource="@drawable/ic_arrow_back"
+        app:leftType="imageButton"
+        app:rightType="none"
+        app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/thomas_shape_r8_white"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/tv_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:sLeftBottomTextColor="@color/thomas_color_hint_text"
+            app:sLeftBottomTextSize="@dimen/thomas_app_small_size"
+            app:sLeftIconRes="@mipmap/ic_launcher_round"
+            app:sLeftIconWidth="48dp"
+            app:sLeftIconHeight="48dp"
+            app:sDividerLineType="none"
+            app:sLeftTextColor="@color/thomas_color_normal_text"
+            app:sLeftTextSize="@dimen/thomas_app_content_size"
+            app:sLeftTvDrawableHeight="12dp"
+            app:sLeftTvDrawableRight="@drawable/ic_edit_black_24dp"
+            app:sLeftTvDrawableWidth="12dp"
+            app:sUseRipple="false" />
+
+
+        <com.allen.library.SuperTextView
+            android:id="@+id/tv_rank"
+            app:sUseRipple="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:sDividerLineType="none"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user"
+            app:sCenterBottomTextColor="@color/thomas_color_normal_text"
+            app:sCenterBottomTextSize="@dimen/thomas_app_small_size"
+            app:sCenterBottomTextString="排名"
+            app:sCenterTextColor="@android:color/holo_red_light"
+            app:sCenterTextSize="24dp"
+            app:sLeftBottomTextColor="@color/thomas_color_normal_text"
+            app:sLeftBottomTextSize="@dimen/thomas_app_small_size"
+            app:sLeftBottomTextString="积分"
+            app:sLeftTextColor="@android:color/holo_red_light"
+            app:sLeftTextSize="24dp"
+            app:sRightBottomTextColor="@color/thomas_color_normal_text"
+            app:sRightBottomTextSize="@dimen/thomas_app_small_size"
+            app:sRightBottomTextString="等级"
+            app:sRightTextColor="@android:color/holo_red_light"
+            app:sRightTextSize="24dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.allen.library.SuperButton
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:elevation="4dp"
+        android:text="退出登录"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/thomas_app_button_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/title_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:sCornersRadius="8dp"
+        app:sSelectorDisableColor="@color/thomas_color_driver"
+        app:sSelectorNormalColor="@color/ic_launcher_background"
+        app:sSelectorPressedColor="@color/colorAccent"
+        app:sUseSelector="true" />
+</androidx.constraintlayout.widget.ConstraintLayout>

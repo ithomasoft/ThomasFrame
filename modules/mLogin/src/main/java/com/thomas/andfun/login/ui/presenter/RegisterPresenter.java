@@ -1,8 +1,10 @@
 package com.thomas.andfun.login.ui.presenter;
 
+import com.thomas.andfun.login.bean.LoginBean;
 import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.login.ui.contract.RegisterContract;
 import com.thomas.andfun.login.ui.model.RegisterModel;
+import com.thomas.sdk.kalle.BaseThomasCallback;
 
 /**
  * @author Thomas
@@ -19,4 +21,20 @@ public class RegisterPresenter extends BaseMvpPresenter<RegisterContract.Model, 
     }
 
 
+    @Override
+    public void register(String username, String password, String repassword) {
+        if (isViewAttached()) {
+            getModel().register(username, password, repassword, new BaseThomasCallback<LoginBean>() {
+                @Override
+                protected void onSuccess(LoginBean succeed) {
+                    getView().onSuccess(succeed);
+                }
+
+                @Override
+                protected void onFailed(String failed) {
+                    getView().onFailed(failed);
+                }
+            });
+        }
+    }
 }

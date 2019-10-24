@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.thomas.andfun.home.R;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.ThomasActivity;
 
 /**
