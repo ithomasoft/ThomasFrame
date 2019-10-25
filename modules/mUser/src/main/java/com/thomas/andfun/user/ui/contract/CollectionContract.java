@@ -18,6 +18,8 @@ public interface CollectionContract {
     interface Model extends IBaseMvpModel {
         void getCollectionList(int page, BaseThomasCallback<CollectionListBean> callback);
 
+        void unCollection(int id, int originId, BaseThomasCallback<String> callback);
+
     }
 
     interface View extends IBaseMvpView {
@@ -26,10 +28,16 @@ public interface CollectionContract {
         void onEmpty();
 
         void onMoreData(boolean hasMoreData);
+
+        void onUnCollectionSuccess(int position);
+
+        void onUnCollectionFailed(String failed);
     }
 
     interface Presenter {
         void getCollectionList(int page);
+
+        void unCollection(int position, int id, int originId);
 
     }
 }

@@ -2,9 +2,9 @@ package com.thomas.andfun.user.ui.presenter;
 
 import com.thomas.andfun.user.bean.IntegralBean;
 import com.thomas.andfun.user.bean.IntegralListBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.user.ui.contract.IntegralContract;
 import com.thomas.andfun.user.ui.model.IntegralModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 /**

@@ -24,7 +24,6 @@ import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author Thomas

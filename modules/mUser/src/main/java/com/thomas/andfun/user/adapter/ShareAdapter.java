@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.thomas.andfun.user.R;
 import com.thomas.andfun.user.bean.CollectionListBean;
+import com.thomas.andfun.user.bean.ShareListBean;
 import com.thomas.sdk.helper.ImageHelper;
 
 import java.util.List;
@@ -18,15 +19,14 @@ import java.util.List;
  * @updatelog
  * @since
  */
-public class CollectionAdapter extends BaseQuickAdapter<CollectionListBean.DatasBean, BaseViewHolder> {
-    public CollectionAdapter(@Nullable List<CollectionListBean.DatasBean> data) {
-        super(R.layout.item_collection, data);
+public class ShareAdapter extends BaseQuickAdapter<ShareListBean.ShareArticlesBean.DatasBean, BaseViewHolder> {
+    public ShareAdapter(@Nullable List<ShareListBean.ShareArticlesBean.DatasBean> data) {
+        super(R.layout.item_share, data);
     }
 
     @Override
-    protected void convert(@NonNull BaseViewHolder helper, CollectionListBean.DatasBean item) {
+    protected void convert(@NonNull BaseViewHolder helper, ShareListBean.ShareArticlesBean.DatasBean item) {
         helper.setText(R.id.tv_title, item.getTitle());
-        helper.setText(R.id.tv_type, "分类：" + item.getChapterName());
         helper.setText(R.id.tv_time, item.getNiceDate());
         if (item.getLink().contains("jianshu")) {
             ImageHelper.showSimpleSquare(helper.itemView.findViewById(R.id.iv_from), R.mipmap.ic_jianshu);

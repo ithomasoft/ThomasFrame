@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
@@ -19,8 +20,10 @@ import com.thomas.andfun.user.ui.contract.CollectionContract;
 import com.thomas.andfun.user.ui.presenter.CollectionPresenter;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
+import com.thomas.res.dialog.NormalDialog;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
@@ -97,7 +100,30 @@ public class CollectionActivity extends ThomasMvpActivity<CollectionPresenter> i
         rvContent.setLayoutManager(new LinearLayoutManager(mActivity));
         adapter = new CollectionAdapter(datas);
         rvContent.setAdapter(adapter);
+        adapter.setOnItemClickListener((adapter, view, position) -> {
+            ToastUtils.showShort(datas.get(position).getLink());
+        });
+        adapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                showCancelDialog(position);
+                return true;
+            }
+        });
 
+    }
+
+    private void showCancelDialog(int position) {
+        DialogHelper.showDialogCenter("提示", "确定要取消收藏这篇文章吗?", "再想想", "确定", new NormalDialog.OnDialogListener() {
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onSure() {
+                presenter.unCollection(position, datas.get(position).getId(), datas.get(position).getOriginId());
+            }
+        });
     }
 
     @Override
@@ -110,7 +136,7 @@ public class CollectionActivity extends ThomasMvpActivity<CollectionPresenter> i
     public void onFailed(String failed) {
         smartRefreshLayout.finishRefresh(false);
         smartRefreshLayout.finishLoadMore(false);
-        if (page == 1) {
+        if (page == 0) {
             holder.withData(failed).withRetry(() -> presenter.getCollectionList(page)).showLoadFailed();
         } else {
             ToastUtils.showShort(failed);
@@ -132,5 +158,21 @@ public class CollectionActivity extends ThomasMvpActivity<CollectionPresenter> i
     @Override
     public void onMoreData(boolean hasMoreData) {
         smartRefreshLayout.setNoMoreData(!hasMoreData);
+    }
+
+    @Override
+    public void onUnCollectionSuccess(int position) {
+        adapter.remove(position);
+        if (adapter.getData().size() == 0) {
+            holder.showEmpty();
+        } else {
+            holder.showLoadSuccess();
+        }
+    }
+
+
+    @Override
+    public void onUnCollectionFailed(String failed) {
+        ToastUtils.showShort(failed);
     }
 }

@@ -1,9 +1,9 @@
 package com.thomas.andfun.user.ui.presenter;
 
 import com.thomas.andfun.user.bean.CollectionListBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.user.ui.contract.CollectionContract;
 import com.thomas.andfun.user.ui.model.CollectionModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 /**
@@ -38,6 +38,23 @@ public class CollectionPresenter extends BaseMvpPresenter<CollectionContract.Mod
                 @Override
                 protected void onFailed(String failed) {
                     getView().onFailed(failed);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void unCollection(int position, int id, int originId) {
+        if (isViewAttached()) {
+            getModel().unCollection(id, originId, new BaseThomasCallback<String>() {
+                @Override
+                protected void onSuccess(String succeed) {
+                    getView().onUnCollectionSuccess(position);
+                }
+
+                @Override
+                protected void onFailed(String failed) {
+                    getView().onUnCollectionFailed(failed);
                 }
             });
         }
