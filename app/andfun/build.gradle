@@ -16,5 +16,7 @@ dependencies {
     implementation project(path: ':modules:mHome')
     implementation project(path: ':modules:mLogin')
     implementation project(path: ':modules:mUser')
+    implementation project(path: ':modules:mAbout')
+    implementation project(path: ':modules:mSetting')
 
 }

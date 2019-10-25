@@ -46,4 +46,13 @@ public interface RouterHub {
      * 我的积分页
      */
     String ROUTER_INTEGRAL = "/mine/integral";
+
+    /**
+     * 设置中心页
+     */
+    String ROUTER_SETTING = "/setting/setting";
+    /**
+     * 关于我们页
+     */
+    String ROUTER_ABOUT = "/about/about";
 }

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AboutActivity">
+
+    <com.thomas.res.widget.ThomasTitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:centerText="关于我们"
+        app:centerTextColor="@color/thomas_color_app_title_text"
+        app:centerTextMarquee="true"
+        app:centerType="textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftImageResource="@drawable/ic_arrow_back"
+        app:leftType="imageButton"
+        app:rightType="none"
+        app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/btn_point"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar"
+        app:sDividerLineType="none"
+        app:sLeftTextString="积分规则"
+        app:sRightIconHeight="16dp"
+        app:sRightIconRes="@drawable/ic_keyboard_arrow_right_black_24dp"
+        app:sRightIconWidth="16dp"
+        app:sShapeSelectorNormalColor="@android:color/white"
+        app:sShapeSelectorPressedColor="@color/thomas_color_driver"
+        app:sUseShape="true" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/btn_web"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_point"
+        app:sDividerLineType="none"
+        app:sLeftTextString="关于网站"
+        app:sRightIconHeight="16dp"
+        app:sRightIconRes="@drawable/ic_keyboard_arrow_right_black_24dp"
+        app:sRightIconWidth="16dp"
+        app:sShapeSelectorNormalColor="@android:color/white"
+        app:sShapeSelectorPressedColor="@color/thomas_color_driver"
+        app:sUseShape="true" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/btn_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_web"
+        app:sDividerLineType="none"
+        app:sLeftTextString="关于作者"
+        app:sRightIconHeight="16dp"
+        app:sRightIconRes="@drawable/ic_keyboard_arrow_right_black_24dp"
+        app:sRightIconWidth="16dp"
+        app:sShapeSelectorNormalColor="@android:color/white"
+        app:sShapeSelectorPressedColor="@color/thomas_color_driver"
+        app:sUseShape="true" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/btn_open"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_author"
+        app:sDividerLineType="none"
+        app:sLeftTextString="开源项目"
+        app:sRightIconHeight="16dp"
+        app:sRightIconRes="@drawable/ic_keyboard_arrow_right_black_24dp"
+        app:sRightIconWidth="16dp"
+        app:sShapeSelectorNormalColor="@android:color/white"
+        app:sShapeSelectorPressedColor="@color/thomas_color_driver"
+        app:sUseShape="true" />
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/btn_app"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_open"
+        app:sDividerLineType="none"
+        app:sLeftTextString="更多应用"
+        app:sRightIconHeight="16dp"
+        app:sRightIconRes="@drawable/ic_keyboard_arrow_right_black_24dp"
+        app:sRightIconWidth="16dp"
+        app:sShapeSelectorNormalColor="@android:color/white"
+        app:sShapeSelectorPressedColor="@color/thomas_color_driver"
+        app:sUseShape="true" />
+</androidx.constraintlayout.widget.ConstraintLayout>

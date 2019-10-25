@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
 
 import com.allen.library.SuperTextView;
 import com.thomas.andfun.home.R;
@@ -51,7 +52,6 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
 
     @Override
     public int bindLayout() {
-        BarUtils.setStatusBarLightMode(mActivity, false);
         return R.layout.fragment_mine;
     }
 
@@ -111,10 +111,10 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
             ToastUtils.showLong("待办清单");
         }
         if (clickId == R.id.btn_setting) {
-            ToastUtils.showLong("设置中心");
+            ARouterHelper.startActivity(RouterHub.ROUTER_SETTING);
         }
         if (clickId == R.id.btn_about) {
-            ToastUtils.showLong("关于我们");
+            ARouterHelper.startActivity(RouterHub.ROUTER_ABOUT);
         }
     }
 
@@ -126,6 +126,8 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
     @Override
     public void onStart() {
         super.onStart();
+        BarUtils.setStatusBarLightMode(mActivity, false);
+        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, android.R.color.transparent));
         if (UserHelper.isLogin()) {
             tvNickname.setCenterString(UserHelper.getNickname());
             btnIntegral.setVisibility(View.VISIBLE);

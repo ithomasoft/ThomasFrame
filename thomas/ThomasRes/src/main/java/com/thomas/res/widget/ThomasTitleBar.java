@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -132,13 +133,13 @@ public class ThomasTitleBar extends RelativeLayout implements View.OnClickListen
     }
 
     private void loadAttributes(Context context, AttributeSet attrs) {
-        PADDING_5 = 10;
-        PADDING_12 = 24;
+        PADDING_5 = dp2PxInt(context, 5);
+        PADDING_12 = dp2PxInt(context, 12);
         if (attrs != null) {
             TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ThomasTitleBar);
             titleBarBackgroundColor = array.getColor(R.styleable.ThomasTitleBar_titleBarBackgroundColor, ContextCompat.getColor(context, R.color.thomas_color_app_title_background));
 
-            titleBarHeight = (int) array.getDimension(R.styleable.ThomasTitleBar_titleBarHeight, 56);
+            titleBarHeight = (int) array.getDimension(R.styleable.ThomasTitleBar_titleBarHeight, dp2PxInt(context, 56));
 
             leftType = array.getInt(R.styleable.ThomasTitleBar_leftType, TYPE_LEFT_NONE);
             if (leftType == TYPE_LEFT_TEXTVIEW) {
@@ -243,7 +244,7 @@ public class ThomasTitleBar extends RelativeLayout implements View.OnClickListen
                     tvLeft.setCompoundDrawablesWithIntrinsicBounds(leftDrawable, 0, 0, 0);
                 }
             }
-            tvLeft.setPadding(16, 0, 16, 0);
+            tvLeft.setPadding(PADDING_12, 0, PADDING_12, 0);
 
             rlMain.addView(tvLeft, leftInnerParams);
 
@@ -370,45 +371,45 @@ public class ThomasTitleBar extends RelativeLayout implements View.OnClickListen
             rlMainCenterSearch.setBackgroundResource(centerSearchBgResource);
             LayoutParams centerParams = new LayoutParams(MATCH_PARENT, MATCH_PARENT);
             // 设置边距
-            centerParams.topMargin = 7;
-            centerParams.bottomMargin = 7;
+            centerParams.topMargin = dp2PxInt(context, 7);
+            centerParams.bottomMargin = dp2PxInt(context, 7);
             // 根据左边的布局类型来设置边距,布局依赖规则
             if (leftType == TYPE_LEFT_TEXTVIEW) {
                 centerParams.addRule(RelativeLayout.END_OF, tvLeft.getId());
-                centerParams.setMargins(PADDING_5, 0, 0, 0);
+                centerParams.setMarginStart(PADDING_5);
             } else if (leftType == TYPE_LEFT_IMAGEBUTTON) {
                 centerParams.addRule(RelativeLayout.END_OF, btnLeft.getId());
-                centerParams.setMargins(PADDING_5, 0, 0, 0);
+                centerParams.setMarginStart(PADDING_5);
             } else if (leftType == TYPE_LEFT_CUSTOM_VIEW) {
                 centerParams.addRule(RelativeLayout.END_OF, viewCustomLeft.getId());
-                centerParams.setMargins(PADDING_5, 0, 0, 0);
+                centerParams.setMarginStart(PADDING_5);
             } else {
-                centerParams.setMargins(PADDING_12, 0, 0, 0);
+                centerParams.setMarginStart(PADDING_12);
             }
             // 根据右边的布局类型来设置边距,布局依赖规则
             if (rightType == TYPE_RIGHT_TEXTVIEW) {
                 centerParams.addRule(RelativeLayout.START_OF, tvRight.getId());
-                centerParams.setMargins(0, 0, PADDING_5, 0);
+                centerParams.setMarginEnd(PADDING_5);
             } else if (rightType == TYPE_RIGHT_IMAGEBUTTON) {
                 centerParams.addRule(RelativeLayout.START_OF, btnRight.getId());
-                centerParams.setMargins(0, 0, PADDING_5, 0);
+                centerParams.setMarginEnd(PADDING_5);
             } else if (rightType == TYPE_RIGHT_CUSTOM_VIEW) {
                 centerParams.addRule(RelativeLayout.START_OF, viewCustomRight.getId());
-                centerParams.setMargins(0, 0, PADDING_5, 0);
+                centerParams.setMarginEnd(PADDING_5);
             } else {
-                centerParams.setMargins(0, 0, PADDING_12, 0);
+                centerParams.setMarginEnd(PADDING_12);
             }
             rlMain.addView(rlMainCenterSearch, centerParams);
 
             // 初始化搜索框搜索ImageView
             ivSearch = new AppCompatImageView(context);
-            ivSearch.setId(buildViewId());
+            ivSearch.setId(generateViewId());
             ivSearch.setOnClickListener(this);
-            int searchIconWidth = 15;
+            int searchIconWidth = dp2PxInt(context, 15);
             LayoutParams searchParams = new LayoutParams(searchIconWidth, searchIconWidth);
             searchParams.addRule(RelativeLayout.CENTER_VERTICAL);
             searchParams.addRule(RelativeLayout.ALIGN_PARENT_START);
-            searchParams.setMargins(PADDING_12, 0, 0, 0);
+            searchParams.setMarginStart(PADDING_12);
             rlMainCenterSearch.addView(ivSearch, searchParams);
             ivSearch.setImageResource(R.drawable.ic_search);
 
@@ -433,7 +434,7 @@ public class ThomasTitleBar extends RelativeLayout implements View.OnClickListen
             etSearchHint.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
             etSearchHint.setTextColor(ContextCompat.getColor(context, R.color.thomas_color_normal_text));
             etSearchHint.setHintTextColor(ContextCompat.getColor(context, R.color.thomas_color_hint_text));
-            etSearchHint.setTextSize(14);
+            etSearchHint.setTextSize(TypedValue.COMPLEX_UNIT_PX, dp2PxInt(context, 14));
             etSearchHint.setPadding(PADDING_5, 0, PADDING_5, 0);
             if (!centerSearchEditable) {
                 etSearchHint.setCursorVisible(false);
@@ -458,7 +459,8 @@ public class ThomasTitleBar extends RelativeLayout implements View.OnClickListen
             searchHintParams.addRule(RelativeLayout.END_OF, ivSearch.getId());
             searchHintParams.addRule(RelativeLayout.START_OF, ivSearchAction.getId());
             searchHintParams.addRule(RelativeLayout.CENTER_VERTICAL);
-            searchHintParams.setMargins(PADDING_5, 0, PADDING_5, 0);
+            searchHintParams.setMarginStart(PADDING_5);
+            searchHintParams.setMarginEnd(PADDING_5);
             rlMainCenterSearch.addView(etSearchHint, searchHintParams);
 
         } else if (centerType == TYPE_CENTER_CUSTOM_VIEW) {
@@ -843,5 +845,23 @@ public class ThomasTitleBar extends RelativeLayout implements View.OnClickListen
         activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
         return metrics;
     }
+
+
+    private int dp2PxInt(Context context, float dp) {
+        return (int) (dp2Px(context, dp) + 0.5f);
+    }
+
+    private float dp2Px(Context context, float dp) {
+        if (context == null) {
+            return -1;
+        }
+        return dp * density(context);
+    }
+
+    private float density(Context context) {
+        return context.getResources().getDisplayMetrics().density;
+    }
+
+
 
 }

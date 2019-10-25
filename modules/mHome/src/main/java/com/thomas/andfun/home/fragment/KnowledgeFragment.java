@@ -1,17 +1,18 @@
 package com.thomas.andfun.home.fragment;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-
 import android.view.View;
 
-import com.thomas.core.utils.BarUtils;
-import com.thomas.sdk.ui.ThomasMvpFragment;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+
+import com.thomas.andfun.home.R;
+import com.thomas.andfun.home.R2;
 import com.thomas.andfun.home.fragment.contract.KnowledgeContract;
 import com.thomas.andfun.home.fragment.presenter.KnowledgePresenter;
-import com.thomas.andfun.home.R;
-
+import com.thomas.core.utils.BarUtils;
+import com.thomas.res.widget.ThomasTitleBar;
+import com.thomas.sdk.ui.ThomasMvpFragment;
 
 import butterknife.BindView;
 
@@ -24,6 +25,9 @@ import butterknife.BindView;
  */
 public class KnowledgeFragment extends ThomasMvpFragment<KnowledgePresenter> implements KnowledgeContract.View {
 
+
+    @BindView(R2.id.title_bar)
+    ThomasTitleBar titleBar;
 
     @Override
     protected KnowledgePresenter createPresenter() {
@@ -42,7 +46,6 @@ public class KnowledgeFragment extends ThomasMvpFragment<KnowledgePresenter> imp
 
     @Override
     public int bindLayout() {
-        BarUtils.setStatusBarLightMode(mActivity, true);
         return R.layout.fragment_knowledge;
     }
 
@@ -59,5 +62,13 @@ public class KnowledgeFragment extends ThomasMvpFragment<KnowledgePresenter> imp
     @Override
     public void onFailed(String failed) {
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        BarUtils.setStatusBarLightMode(mActivity, false);
+        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, R.color.thomas_color_app_title_background));
+        BarUtils.addMarginTopEqualStatusBarHeight(titleBar);
     }
 }
