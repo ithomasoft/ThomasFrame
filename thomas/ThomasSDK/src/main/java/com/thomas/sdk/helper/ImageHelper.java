@@ -24,6 +24,43 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
  */
 public class ImageHelper {
 
+
+    /**
+     * 展示带模糊效果的图片
+     *
+     * @param iv
+     * @param url
+     */
+    public static void showSimple(ImageView iv, String url) {
+        RequestOptions requestOptions = new RequestOptions()
+                .centerCrop()
+                .priority(Priority.IMMEDIATE);
+
+        Glide.with(Utils.getApp())
+                .load(url)
+                .apply(requestOptions)
+                .transition(withCrossFade())
+                .into(iv);
+    }
+
+    /**
+     * 展示带模糊效果的图片
+     *
+     * @param iv
+     */
+    public static void showSimple(ImageView iv, @DrawableRes final int resId) {
+        RequestOptions requestOptions = new RequestOptions()
+                .centerCrop()
+                .priority(Priority.IMMEDIATE);
+
+        Glide.with(Utils.getApp())
+                .load(resId)
+                .apply(requestOptions)
+                .transition(withCrossFade())
+                .into(iv);
+    }
+
+
     /**
      * 展示带模糊效果的图片
      *
