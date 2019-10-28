@@ -144,8 +144,8 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     @Override
     public void doBusiness() {
-        presenter.getBanner();
         LoadingHelper.showLoading();
+        presenter.getBanner();
         presenter.getNews(page);
     }
 

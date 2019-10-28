@@ -68,6 +68,7 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
             btnIntegral.setVisibility(View.GONE);
         }
         ImageHelper.showSimpleWithBlur(bgMine, R.drawable.bg_mine);
+        ImageHelper.showSimpleSquare(ivHead, R.mipmap.ic_launcher_round);
         applyThomasClickListener(findViewById(R.id.tv_nick_name), findViewById(R.id.btn_integral), findViewById(R.id.btn_collection), findViewById(R.id.btn_share)
                 , findViewById(R.id.btn_scan), findViewById(R.id.btn_todo)
                 , findViewById(R.id.btn_setting), findViewById(R.id.btn_about));
