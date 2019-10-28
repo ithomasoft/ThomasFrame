@@ -30,12 +30,12 @@ public abstract class BaseThomasCallback<S> extends Callback<S, String> {
     private long duration = 2000;
 
     public BaseThomasCallback() {
-        startTime = System.currentTimeMillis();
+
     }
 
     @Override
     public void onStart() {
-
+        startTime = System.currentTimeMillis();
     }
 
     @Override
@@ -51,7 +51,6 @@ public abstract class BaseThomasCallback<S> extends Callback<S, String> {
 
     @Override
     public void onResponse(SimpleResponse<S, String> response) {
-        if (LoadingHelper.checkLoadingShow()) {
             endTime = System.currentTimeMillis();
             long time = endTime - startTime;
             if (time > duration) {
@@ -74,13 +73,6 @@ public abstract class BaseThomasCallback<S> extends Callback<S, String> {
                     }
                 }, duration - time);
             }
-        } else {
-            if (response.isSucceed()) {
-                onSuccess(response.succeed());
-            } else {
-                onFailed(response.failed());
-            }
-        }
 
     }
 

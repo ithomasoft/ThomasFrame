@@ -144,7 +144,7 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     @Override
     public void doBusiness() {
-        LoadingHelper.showLoading();
+        holder.showLoading();
         presenter.getBanner();
         presenter.getNews(page);
     }
@@ -193,6 +193,7 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
         smartRefreshLayout.finishRefresh(true);
         smartRefreshLayout.finishLoadMore(true);
         adapter.addData(datas);
+        holder.showLoadSuccess();
     }
 
     @Override

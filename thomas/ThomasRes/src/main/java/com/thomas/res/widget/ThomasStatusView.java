@@ -54,7 +54,7 @@ public class ThomasStatusView extends LinearLayoutCompat implements View.OnClick
     public void setStatus(int status) {
         boolean show = true;
         View.OnClickListener onClickListener = null;
-        int image = R.raw.thomas_empty;
+        int image = R.raw.thomas_loading;
         String str = context.getString(R.string.thomas_loading);
         switch (status) {
             case STATUS_LOAD_SUCCESS:
