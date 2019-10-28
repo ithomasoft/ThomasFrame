@@ -46,15 +46,15 @@ public class HttpHelper {
     }
 
     public static void post(String url, Params params, BaseThomasCallback thomasCallback) {
-        Kalle.post(url).params(params).cacheMode(CacheMode.NETWORK_YES_THEN_HTTP).perform(thomasCallback);
+        Kalle.post(url).params(params).perform(thomasCallback);
     }
 
     public static void post(String url, BaseThomasCallback thomasCallback) {
-        Kalle.post(url).cacheMode(CacheMode.NETWORK_YES_THEN_HTTP).perform(thomasCallback);
+        Kalle.post(url).perform(thomasCallback);
     }
 
     public static void get(String url, BaseThomasCallback thomasCallback) {
-        Kalle.get(url).cacheMode(CacheMode.NETWORK_YES_THEN_HTTP).perform(thomasCallback);
+        Kalle.get(url).perform(thomasCallback);
     }
 
 
