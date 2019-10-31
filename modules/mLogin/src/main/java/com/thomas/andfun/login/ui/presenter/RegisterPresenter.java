@@ -23,18 +23,21 @@ public class RegisterPresenter extends BaseMvpPresenter<RegisterContract.Model, 
 
     @Override
     public void register(String username, String password, String repassword) {
-        if (isViewAttached()) {
-            getModel().register(username, password, repassword, new BaseThomasCallback<LoginBean>() {
-                @Override
-                protected void onSuccess(LoginBean succeed) {
+
+        getModel().register(username, password, repassword, new BaseThomasCallback<LoginBean>() {
+            @Override
+            protected void onSuccess(LoginBean succeed) {
+                if (isViewAttached()) {
                     getView().onSuccess(succeed);
                 }
+            }
 
-                @Override
-                protected void onFailed(String failed) {
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
                     getView().onFailed(failed);
                 }
-            });
-        }
+            }
+        });
     }
 }

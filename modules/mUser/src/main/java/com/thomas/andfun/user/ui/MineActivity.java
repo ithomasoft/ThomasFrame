@@ -98,7 +98,7 @@ public class MineActivity extends ThomasMvpActivity<MinePresenter> implements Mi
         holder.showLoadSuccess();
         tvRank.setLeftString(data.getCoinCount() + "");
         tvRank.setCenterString(data.getRank() + "");
-        tvRank.setRightString("Lv" + data.getCoinCount() / 200);
+        tvRank.setRightString("Lv" + (data.getCoinCount() / 100 + 1));
     }
 
     @Override

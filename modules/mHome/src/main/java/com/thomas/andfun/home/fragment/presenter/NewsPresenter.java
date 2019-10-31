@@ -26,31 +26,36 @@ public class NewsPresenter extends BaseMvpPresenter<NewsContract.Model, NewsCont
 
     @Override
     public void getBanner() {
-        if (isViewAttached()) {
-            getModel().getBanner(new BaseThomasCallback<List<BannerBean>>() {
-                @Override
-                protected void onSuccess(List<BannerBean> succeed) {
+
+        getModel().getBanner(new BaseThomasCallback<List<BannerBean>>() {
+            @Override
+            protected void onSuccess(List<BannerBean> succeed) {
+                if (isViewAttached()) {
                     if (succeed != null && succeed.size() > 0) {
                         getView().onBannerSuccess(succeed);
                     } else {
                         getView().onBannerEmpty();
                     }
                 }
+            }
 
-                @Override
-                protected void onFailed(String failed) {
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
                     getView().onBannerFailed(failed);
                 }
-            });
-        }
+            }
+        });
+
     }
 
     @Override
     public void getNews(int page) {
-        if (isViewAttached()) {
-            getModel().getNews(page, new BaseThomasCallback<NewsListBean>() {
-                @Override
-                protected void onSuccess(NewsListBean succeed) {
+
+        getModel().getNews(page, new BaseThomasCallback<NewsListBean>() {
+            @Override
+            protected void onSuccess(NewsListBean succeed) {
+                if (isViewAttached()) {
                     getView().onMoreData(succeed.getCurPage() < succeed.getPageCount());
                     if (succeed.getDatas() != null && succeed.getDatas().size() > 0) {
                         getView().onNewsSuccess(succeed.getDatas());
@@ -58,12 +63,14 @@ public class NewsPresenter extends BaseMvpPresenter<NewsContract.Model, NewsCont
                         getView().onNewsEmpty();
                     }
                 }
+            }
 
-                @Override
-                protected void onFailed(String failed) {
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
                     getView().onFailed(failed);
                 }
-            });
-        }
+            }
+        });
     }
 }

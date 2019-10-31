@@ -1,7 +1,10 @@
 package com.thomas.andfun.user.adapter;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.text.HtmlCompat;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -25,9 +28,8 @@ public class CollectionAdapter extends BaseQuickAdapter<CollectionListBean.Datas
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, CollectionListBean.DatasBean item) {
-        helper.setText(R.id.tv_title, item.getTitle());
-        helper.setText(R.id.tv_type, "分类：" + item.getChapterName());
-        helper.setText(R.id.tv_time, item.getNiceDate());
+        helper.setText(R.id.tv_title, HtmlCompat.fromHtml(item.getTitle(), HtmlCompat.FROM_HTML_MODE_COMPACT));
+        helper.setText(R.id.tv_date, item.getNiceDate());
         if (item.getLink().contains("jianshu")) {
             ImageHelper.showSimpleSquare(helper.itemView.findViewById(R.id.iv_from), R.mipmap.ic_jianshu);
         } else if (item.getLink().contains("juejin")) {

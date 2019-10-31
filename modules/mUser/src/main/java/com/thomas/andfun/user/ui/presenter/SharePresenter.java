@@ -23,10 +23,11 @@ public class SharePresenter extends BaseMvpPresenter<ShareContract.Model, ShareC
 
     @Override
     public void getShareList(int page) {
-        if (isViewAttached()) {
-            getModel().getShareList(page, new BaseThomasCallback<ShareListBean>() {
-                @Override
-                protected void onSuccess(ShareListBean succeed) {
+
+        getModel().getShareList(page, new BaseThomasCallback<ShareListBean>() {
+            @Override
+            protected void onSuccess(ShareListBean succeed) {
+                if (isViewAttached()) {
                     getView().onMoreData(succeed.getShareArticles().getCurPage() < succeed.getShareArticles().getPageCount());
                     if (succeed.getShareArticles().getDatas() != null && succeed.getShareArticles().getDatas().size() > 0) {
                         getView().onSuccess(succeed.getShareArticles().getDatas());
@@ -34,29 +35,35 @@ public class SharePresenter extends BaseMvpPresenter<ShareContract.Model, ShareC
                         getView().onEmpty();
                     }
                 }
+            }
 
-                @Override
-                protected void onFailed(String failed) {
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
                     getView().onFailed(failed);
                 }
-            });
-        }
+            }
+        });
+
     }
 
     @Override
     public void unShare(int position, int id) {
-        if (isViewAttached()) {
-            getModel().unShare(id, new BaseThomasCallback<String>() {
-                @Override
-                protected void onSuccess(String succeed) {
+
+        getModel().unShare(id, new BaseThomasCallback<String>() {
+            @Override
+            protected void onSuccess(String succeed) {
+                if (isViewAttached()) {
                     getView().onUnShareSuccess(position);
                 }
+            }
 
-                @Override
-                protected void onFailed(String failed) {
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
                     getView().onUnShareFailed(failed);
                 }
-            });
-        }
+            }
+        });
     }
 }

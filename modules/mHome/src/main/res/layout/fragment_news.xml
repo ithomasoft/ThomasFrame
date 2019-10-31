@@ -9,15 +9,15 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        app:centerType="textView"
         app:centerText="玩安卓"
+        app:centerType="textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:leftText="广场"
         app:leftType="textView"
-        app:rightType="imageButton"
         app:rightImageResource="@drawable/ic_search_black_24dp"
+        app:rightType="imageButton"
         app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -29,29 +29,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_bar">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.youth.banner.Banner
-                android:id="@+id/banner"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_content"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:overScrollMode="never"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/banner" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="match_parent"
+                android:overScrollMode="never" />
 
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>

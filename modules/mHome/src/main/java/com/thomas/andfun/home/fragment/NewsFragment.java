@@ -2,11 +2,16 @@ package com.thomas.andfun.home.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.LayoutInflaterCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +27,8 @@ import com.thomas.andfun.home.fragment.contract.NewsContract;
 import com.thomas.andfun.home.fragment.presenter.NewsPresenter;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.BarUtils;
+import com.thomas.core.utils.ScreenUtils;
+import com.thomas.core.utils.SizeUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.helper.ImageHelper;
@@ -49,12 +56,11 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     @BindView(R2.id.title_bar)
     ThomasTitleBar titleBar;
-    @BindView(R2.id.banner)
-    Banner banner;
     @BindView(R2.id.rv_content)
     RecyclerView rvContent;
     @BindView(R2.id.smart_refresh_layout)
     SmartRefreshLayout smartRefreshLayout;
+    Banner banner;
 
     private List<String> images = new ArrayList<>();
     private List<String> titles = new ArrayList<>();
@@ -100,13 +106,7 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
-        banner.setImageLoader(new ImageLoader() {
-            @Override
-            public void displayImage(Context context, Object path, ImageView imageView) {
-                ImageHelper.showSimple(imageView, (String) path);
-            }
-        });
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
+        initHead();
         titleBar.setListener((view, action, extra) -> {
             ToastUtils.showShort(action + "---");
             if (action == ThomasTitleBar.ACTION_RIGHT_BUTTON) {
@@ -142,6 +142,23 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     }
 
+    private void initHead() {
+        banner = (Banner) LayoutInflater.from(mActivity).inflate(R.layout.view_news_head, null, false);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ScreenUtils.getScreenWidth(), SizeUtils.dp2px(160));
+        banner.setLayoutParams(params);
+        banner.setImageLoader(new ImageLoader() {
+            @Override
+            public void displayImage(Context context, Object path, ImageView imageView) {
+                ImageHelper.showSimple(imageView, (String) path);
+            }
+        });
+
+        banner.isAutoPlay(true);
+        banner.setDelayTime(5000);
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
+        banner.setBannerAnimation(Transformer.Default);
+    }
+
     @Override
     public void doBusiness() {
         holder.showLoading();
@@ -162,30 +179,27 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     @Override
     public void onBannerSuccess(List<BannerBean> datas) {
-        banner.setVisibility(View.VISIBLE);
+        adapter.setHeaderView(banner);
         for (BannerBean bean : datas) {
             images.add(bean.getImagePath());
             titles.add(bean.getTitle());
         }
         banner.setImages(images);
         banner.setBannerTitles(titles);
-        banner.isAutoPlay(true);
-        banner.setDelayTime(5000);
-        banner.setBannerAnimation(Transformer.ForegroundToBackground);
         banner.start();
     }
 
     @Override
     public void onBannerEmpty() {
         banner.stopAutoPlay();
-        banner.setVisibility(View.GONE);
+        adapter.removeHeaderView(banner);
     }
 
     @Override
     public void onBannerFailed(String failed) {
         ToastUtils.showShort(failed);
         banner.stopAutoPlay();
-        banner.setVisibility(View.GONE);
+        adapter.removeHeaderView(banner);
     }
 
     @Override

@@ -23,40 +23,46 @@ public class CollectionPresenter extends BaseMvpPresenter<CollectionContract.Mod
 
     @Override
     public void getCollectionList(int page) {
-        if (isViewAttached()) {
+
             getModel().getCollectionList(page, new BaseThomasCallback<CollectionListBean>() {
                 @Override
                 protected void onSuccess(CollectionListBean succeed) {
-                    getView().onMoreData(succeed.getCurPage() < succeed.getPageCount());
-                    if (succeed.getDatas() != null && succeed.getDatas().size() > 0) {
-                        getView().onSuccess(succeed.getDatas());
-                    } else if (page == 0) {
-                        getView().onEmpty();
+                    if (isViewAttached()) {
+                        getView().onMoreData(succeed.getCurPage() < succeed.getPageCount());
+                        if (succeed.getDatas() != null && succeed.getDatas().size() > 0) {
+                            getView().onSuccess(succeed.getDatas());
+                        } else if (page == 0) {
+                            getView().onEmpty();
+                        }
                     }
                 }
 
                 @Override
                 protected void onFailed(String failed) {
-                    getView().onFailed(failed);
+                    if (isViewAttached()) {
+                        getView().onFailed(failed);
+                    }
                 }
             });
-        }
     }
 
     @Override
     public void unCollection(int position, int id, int originId) {
-        if (isViewAttached()) {
+
             getModel().unCollection(id, originId, new BaseThomasCallback<String>() {
                 @Override
                 protected void onSuccess(String succeed) {
-                    getView().onUnCollectionSuccess(position);
+                    if (isViewAttached()) {
+                        getView().onUnCollectionSuccess(position);
+                    }
                 }
 
                 @Override
                 protected void onFailed(String failed) {
-                    getView().onUnCollectionFailed(failed);
+                    if (isViewAttached()) {
+                        getView().onUnCollectionFailed(failed);
+                    }
                 }
             });
-        }
     }
 }

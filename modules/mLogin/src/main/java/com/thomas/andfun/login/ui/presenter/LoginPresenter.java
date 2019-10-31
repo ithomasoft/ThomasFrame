@@ -26,19 +26,21 @@ public class LoginPresenter extends BaseMvpPresenter<LoginContract.Model, LoginC
     @Override
     public void login(String username, String password) {
 
-        if (isViewAttached()) {
             getModel().login(username, password, new BaseThomasCallback<LoginBean>() {
                 @Override
                 protected void onSuccess(LoginBean succeed) {
-                    getView().onLoginSuccess(succeed);
+                    if (isViewAttached()) {
+                        getView().onLoginSuccess(succeed);
+                    }
                 }
 
                 @Override
                 protected void onFailed(String failed) {
-                    getView().onFailed(failed);
+                    if (isViewAttached()) {
+                        getView().onFailed(failed);
+                    }
                 }
             });
         }
 
-    }
 }

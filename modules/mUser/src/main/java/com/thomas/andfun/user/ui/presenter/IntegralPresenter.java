@@ -24,40 +24,46 @@ public class IntegralPresenter extends BaseMvpPresenter<IntegralContract.Model, 
 
     @Override
     public void getIntegralList(int page) {
-        if (isViewAttached()) {
+
             getModel().getIntegralList(page, new BaseThomasCallback<IntegralListBean>() {
                 @Override
                 protected void onSuccess(IntegralListBean succeed) {
-                    getView().onMoreData(succeed.getCurPage() < succeed.getPageCount());
-                    if (succeed.getDatas() != null && succeed.getDatas().size() > 0) {
-                        getView().onSuccess(succeed.getDatas());
-                    } else if (page == 1) {
-                        getView().onEmpty();
+                    if (isViewAttached()) {
+                        getView().onMoreData(succeed.getCurPage() < succeed.getPageCount());
+                        if (succeed.getDatas() != null && succeed.getDatas().size() > 0) {
+                            getView().onSuccess(succeed.getDatas());
+                        } else if (page == 1) {
+                            getView().onEmpty();
+                        }
                     }
                 }
 
                 @Override
                 protected void onFailed(String failed) {
-                    getView().onFailed(failed);
+                    if (isViewAttached()) {
+                        getView().onFailed(failed);
+                    }
                 }
             });
-        }
     }
 
     @Override
     public void getMyIntegral() {
-        if (isViewAttached()) {
+
             getModel().getMyIntegral(new BaseThomasCallback<IntegralBean>() {
                 @Override
                 protected void onSuccess(IntegralBean succeed) {
-                    getView().onMyIntegralSuccess(succeed);
+                    if (isViewAttached()) {
+                        getView().onMyIntegralSuccess(succeed);
+                    }
                 }
 
                 @Override
                 protected void onFailed(String failed) {
-                    getView().onMyIntegralFailed(failed);
+                    if (isViewAttached()) {
+                        getView().onMyIntegralFailed(failed);
+                    }
                 }
             });
-        }
     }
 }

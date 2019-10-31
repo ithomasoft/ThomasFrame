@@ -23,35 +23,41 @@ public class MinePresenter extends BaseMvpPresenter<MineContract.Model, MineCont
 
     @Override
     public void getMyIntegral() {
-        if (isViewAttached()) {
-            getModel().getMyIntegral(new BaseThomasCallback<IntegralBean>() {
-                @Override
-                protected void onSuccess(IntegralBean succeed) {
+
+        getModel().getMyIntegral(new BaseThomasCallback<IntegralBean>() {
+            @Override
+            protected void onSuccess(IntegralBean succeed) {
+                if (isViewAttached()) {
                     getView().onMyIntegralSuccess(succeed);
                 }
+            }
 
-                @Override
-                protected void onFailed(String failed) {
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
                     getView().onFailed(failed);
                 }
-            });
-        }
+            }
+        });
     }
 
     @Override
     public void logout() {
-        if (isViewAttached()) {
-            getModel().logout(new BaseThomasCallback<String>() {
-                @Override
-                protected void onSuccess(String succeed) {
+
+        getModel().logout(new BaseThomasCallback<String>() {
+            @Override
+            protected void onSuccess(String succeed) {
+                if (isViewAttached()) {
                     getView().logoutSuccess();
                 }
+            }
 
-                @Override
-                protected void onFailed(String failed) {
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
                     getView().logoutFailed(failed);
                 }
-            });
-        }
+            }
+        });
     }
 }
