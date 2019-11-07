@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="false"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutDisabledMessage="@string/app_name"
+        android:shortcutId="settings"
+        android:shortcutLongLabel="@string/app_name"
+        android:shortcutShortLabel="@string/app_name">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.thomas.andfun.SplashActivity"
+            android:targetPackage="com.thomas.andfun" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

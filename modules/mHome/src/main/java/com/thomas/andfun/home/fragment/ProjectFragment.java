@@ -1,19 +1,20 @@
 package com.thomas.andfun.home.fragment;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
 
-import android.view.View;
-
+import com.google.android.material.tabs.TabLayout;
+import com.thomas.andfun.home.R;
 import com.thomas.andfun.home.R2;
+import com.thomas.andfun.home.fragment.contract.ProjectContract;
+import com.thomas.andfun.home.fragment.presenter.ProjectPresenter;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.ui.ThomasMvpFragment;
-import com.thomas.andfun.home.fragment.contract.ProjectContract;
-import com.thomas.andfun.home.fragment.presenter.ProjectPresenter;
-import com.thomas.andfun.home.R;
 
 import butterknife.BindView;
 
@@ -28,6 +29,10 @@ public class ProjectFragment extends ThomasMvpFragment<ProjectPresenter> impleme
 
     @BindView(R2.id.title_bar)
     ThomasTitleBar titleBar;
+    @BindView(R2.id.tab_layout)
+    TabLayout tabLayout;
+    @BindView(R2.id.vp_content)
+    ViewPager vpContent;
 
     @Override
     protected ProjectPresenter createPresenter() {

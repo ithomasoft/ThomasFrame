@@ -56,7 +56,7 @@ public class NewsPresenter extends BaseMvpPresenter<NewsContract.Model, NewsCont
             @Override
             protected void onSuccess(NewsListBean succeed) {
                 if (isViewAttached()) {
-                    getView().onMoreData(succeed.getCurPage() < succeed.getPageCount());
+                    getView().onMoreData(succeed.getCurPage() < 5);
                     if (succeed.getDatas() != null && succeed.getDatas().size() > 0) {
                         getView().onNewsSuccess(succeed.getDatas());
                     } else if (page == 0) {

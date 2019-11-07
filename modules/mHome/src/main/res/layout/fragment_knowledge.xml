@@ -19,4 +19,14 @@
         app:leftType="none"
         app:rightType="none"
         app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

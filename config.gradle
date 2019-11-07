@@ -3,7 +3,7 @@ ext {
             // 用于编译的SDK版本
             COMPILE_SDK_VERSION: 29,
             // 最低支持Android版本
-            MIN_SDK_VERSION    : 21,
+            MIN_SDK_VERSION    : 25,
             // 目标版本
             TARGET_SDK_VERSION : 29,
 

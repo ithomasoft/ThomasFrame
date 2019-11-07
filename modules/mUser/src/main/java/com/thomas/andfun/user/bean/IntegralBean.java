@@ -9,14 +9,17 @@ package com.thomas.andfun.user.bean;
  */
 public class IntegralBean {
 
+
     /**
-     * coinCount : 451
-     * rank : 7
-     * userId : 2
-     * username : x**oyang
+     * coinCount : 806
+     * level : 9
+     * rank : 232
+     * userId : 5515
+     * username : 9**530507
      */
 
     private int coinCount;
+    private int level;
     private int rank;
     private int userId;
     private String username;
@@ -27,6 +30,14 @@ public class IntegralBean {
 
     public void setCoinCount(int coinCount) {
         this.coinCount = coinCount;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public int getRank() {
