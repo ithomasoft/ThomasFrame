@@ -1,5 +1,7 @@
 package com.thomas.andfun.home.adapter;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -29,7 +31,12 @@ public class ProjectAdapter extends BaseQuickAdapter<ProjectBean.DatasBean, Base
     protected void convert(@NonNull BaseViewHolder helper, ProjectBean.DatasBean item) {
         helper.setText(R.id.tv_title, HtmlCompat.fromHtml(item.getTitle(), HtmlCompat.FROM_HTML_MODE_COMPACT));
         AppCompatImageView imageView = helper.itemView.findViewById(R.id.iv_image);
-        ImageHelper.showSimple(imageView, item.getEnvelopePic());
+        if (TextUtils.isEmpty(item.getEnvelopePic())) {
+            ImageHelper.showSimple(imageView, R.drawable.default_project_img);
+        } else {
+            ImageHelper.showSimple(imageView, item.getEnvelopePic());
+        }
+
         helper.setText(R.id.tv_desc, HtmlCompat.fromHtml(item.getDesc(), HtmlCompat.FROM_HTML_MODE_COMPACT));
     }
 }

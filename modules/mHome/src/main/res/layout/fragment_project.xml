@@ -24,6 +24,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
         android:background="@color/thomas_color_app_title_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
