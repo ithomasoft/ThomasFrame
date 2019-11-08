@@ -1,8 +1,13 @@
 package com.thomas.andfun.home.fragment.presenter;
 
+import com.thomas.andfun.home.bean.ProjectCateBean;
 import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.home.fragment.contract.ProjectContract;
 import com.thomas.andfun.home.fragment.model.ProjectModel;
+import com.thomas.sdk.kalle.BaseThomasCallback;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Thomas
@@ -19,4 +24,32 @@ public class ProjectPresenter extends BaseMvpPresenter<ProjectContract.Model, Pr
     }
 
 
+    @Override
+    public void getProject() {
+        getModel().getProject(new BaseThomasCallback<List<ProjectCateBean>>() {
+            @Override
+            protected void onSuccess(List<ProjectCateBean> succeed) {
+                List<ProjectCateBean> datas = new ArrayList<>();
+                for (ProjectCateBean cateBean : succeed) {
+                    if (cateBean.getVisible() == 1) {
+                        datas.add(cateBean);
+                    }
+                }
+                if (isViewAttached()) {
+                    if (datas.size() > 0) {
+                        getView().getCateSuccess(datas);
+                    } else {
+                        getView().getCateEmpty();
+                    }
+                }
+            }
+
+            @Override
+            protected void onFailed(String failed) {
+                if (isViewAttached()) {
+                    getView().onFailed(failed);
+                }
+            }
+        });
+    }
 }

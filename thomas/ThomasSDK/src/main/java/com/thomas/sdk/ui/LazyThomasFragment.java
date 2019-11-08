@@ -3,6 +3,7 @@ package com.thomas.sdk.ui;
 import com.thomas.core.ui.LazyFragment;
 import com.thomas.sdk.helper.EventHelper;
 import com.thomas.sdk.helper.HttpHelper;
+import com.thomas.sdk.helper.StatusHelper;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -16,6 +17,7 @@ import butterknife.Unbinder;
  */
 public abstract class LazyThomasFragment extends LazyFragment {
     private Unbinder unbinder;
+    protected StatusHelper.Holder holder;
 
     @Override
     public boolean isTransparent() {
