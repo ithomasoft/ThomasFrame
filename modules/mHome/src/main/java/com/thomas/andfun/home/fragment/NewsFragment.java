@@ -6,12 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.LayoutInflaterCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,16 +22,16 @@ import com.thomas.andfun.home.bean.BannerBean;
 import com.thomas.andfun.home.bean.NewsListBean;
 import com.thomas.andfun.home.fragment.contract.NewsContract;
 import com.thomas.andfun.home.fragment.presenter.NewsPresenter;
-import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.core.utils.ScreenUtils;
 import com.thomas.core.utils.SizeUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
+import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.ImageHelper;
-import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.StatusHelper;
-import com.thomas.sdk.ui.ThomasMvpFragment;
+import com.thomas.sdk.ui.LazyThomasMvpFragment;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -52,7 +49,7 @@ import butterknife.BindView;
  * @updatelog
  * @since
  */
-public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements NewsContract.View {
+public class NewsFragment extends LazyThomasMvpFragment<NewsPresenter> implements NewsContract.View {
 
     @BindView(R2.id.title_bar)
     ThomasTitleBar titleBar;
@@ -85,30 +82,14 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
 
     @Override
     public int bindLayout() {
-        BarUtils.setStatusBarLightMode(mActivity, true);
         return R.layout.fragment_news;
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        BarUtils.setStatusBarLightMode(mActivity, false);
-        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, R.color.thomas_color_app_title_background));
-        BarUtils.addMarginTopEqualStatusBarHeight(titleBar);
-        banner.startAutoPlay();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        banner.stopAutoPlay();
-    }
-
-    @Override
     public void initView(Bundle savedInstanceState, View contentView) {
+
         initHead();
         titleBar.setListener((view, action, extra) -> {
-            ToastUtils.showShort(action + "---");
             if (action == ThomasTitleBar.ACTION_RIGHT_BUTTON) {
                 ToastUtils.showShort("打开搜索页面");
             }
@@ -136,7 +117,9 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
         adapter = new NewsAdapter(datas);
         rvContent.setAdapter(adapter);
         adapter.setOnItemClickListener((adapter, view, position) -> {
-            ToastUtils.showShort(datas.get(position).getLink());
+            Bundle bundle = new Bundle();
+            bundle.putString("url", datas.get(position).getLink());
+            ARouterHelper.startActivity(bundle, RouterHub.ROUTER_ARTICLE);
         });
 
 
@@ -160,10 +143,40 @@ public class NewsFragment extends ThomasMvpFragment<NewsPresenter> implements Ne
     }
 
     @Override
-    public void doBusiness() {
+    protected void onFirstUserVisible() {
+        super.onFirstUserVisible();
+        BarUtils.setStatusBarLightMode(mActivity, false);
+        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, R.color.thomas_color_app_title_background));
+        BarUtils.addMarginTopEqualStatusBarHeight(titleBar);
         holder.showLoading();
         presenter.getBanner();
         presenter.getNews(page);
+    }
+
+    @Override
+    protected void onUserVisible() {
+        super.onUserVisible();
+        BarUtils.setStatusBarLightMode(mActivity, false);
+        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, R.color.thomas_color_app_title_background));
+        BarUtils.addMarginTopEqualStatusBarHeight(titleBar);
+        banner.startAutoPlay();
+    }
+
+    @Override
+    protected void onUserInvisible() {
+        super.onUserInvisible();
+        banner.stopAutoPlay();
+    }
+
+    @Override
+    protected void destroyViewAndThing() {
+        super.destroyViewAndThing();
+        banner.stopAutoPlay();
+    }
+
+    @Override
+    public void onThomasClick(@NonNull View view) {
+
     }
 
     @Override

@@ -53,5 +53,7 @@ public class KnowledgeAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity,
     private void convertLevelTwo(BaseViewHolder helper, MultiItemEntity item) {
         KnowledgeBean.ChildrenBean childrenBean = (KnowledgeBean.ChildrenBean) item;
         ((SuperTextView) helper.itemView.findViewById(R.id.tv_name)).setCenterString(childrenBean.getName());
+
+        helper.addOnClickListener(R.id.tv_name);
     }
 }

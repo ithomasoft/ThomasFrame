@@ -1,5 +1,9 @@
 package com.thomas.sdk.ui;
 
+import android.view.View;
+
+import androidx.annotation.NonNull;
+
 import com.thomas.core.ui.LazyFragment;
 import com.thomas.sdk.helper.EventHelper;
 import com.thomas.sdk.helper.HttpHelper;
@@ -65,5 +69,10 @@ public abstract class LazyThomasFragment extends LazyFragment {
             EventHelper.unregister(this);
         }
         HttpHelper.cancelRequest(getActivity());
+    }
+
+    @Override
+    public void onThomasClick(@NonNull View view) {
+
     }
 }

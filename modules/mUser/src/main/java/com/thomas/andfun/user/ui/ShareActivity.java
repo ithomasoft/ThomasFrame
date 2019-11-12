@@ -25,6 +25,7 @@ import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.dialog.NormalDialog;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.RouterHub;
+import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.StatusHelper;
@@ -104,14 +105,13 @@ public class ShareActivity extends ThomasMvpActivity<SharePresenter> implements 
         adapter = new ShareAdapter(datas);
         rvContent.setAdapter(adapter);
         adapter.setOnItemClickListener((adapter, view, position) -> {
-            ToastUtils.showShort(datas.get(position).getLink());
+            Bundle bundle = new Bundle();
+            bundle.putString("url", datas.get(position).getLink());
+            ARouterHelper.startActivity(bundle, RouterHub.ROUTER_ARTICLE);
         });
-        adapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
-                showCancelDialog(position);
-                return true;
-            }
+        adapter.setOnItemLongClickListener((adapter, view, position) -> {
+            showCancelDialog(position);
+            return true;
         });
     }
 

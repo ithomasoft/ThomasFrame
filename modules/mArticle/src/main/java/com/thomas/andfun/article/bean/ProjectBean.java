@@ -1,4 +1,4 @@
-package com.thomas.andfun.home.bean;
+package com.thomas.andfun.article.bean;
 
 import java.util.List;
 

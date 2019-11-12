@@ -1,20 +1,22 @@
 package com.thomas.andfun.home.fragment.model;
 
-import com.thomas.andfun.home.bean.ProjectBean;
+import com.thomas.andfun.home.bean.ProjectCateBean;
 import com.thomas.andfun.home.fragment.contract.ProjectCateContract;
 import com.thomas.sdk.helper.HttpHelper;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
+import java.util.List;
+
 /**
  * @author Thomas
  * @describe
- * @date 2019/11/08
+ * @date 2019/10/17
  * @updatelog
  * @since
  */
 public class ProjectCateModel implements ProjectCateContract.Model {
     @Override
-    public void getCateProject(int id, int page, BaseThomasCallback<ProjectBean> callback) {
-        HttpHelper.get("https://www.wanandroid.com/project/list/" + page + "/json?cid=" + id, callback);
+    public void getProject(BaseThomasCallback<List<ProjectCateBean>> callback) {
+        HttpHelper.get("https://www.wanandroid.com/project/tree/json", callback);
     }
 }

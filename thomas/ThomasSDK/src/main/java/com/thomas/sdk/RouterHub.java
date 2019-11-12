@@ -55,4 +55,20 @@ public interface RouterHub {
      * 关于我们页
      */
     String ROUTER_ABOUT = "/about/about";
+
+    /**
+     * 文章内容页
+     */
+    String ROUTER_ARTICLE = "/article/detail";
+
+    /**
+     * 项目分类列表页
+     */
+    String ROUTER_PROJECT = "/article/project";
+
+    /**
+     * 知识体系列表页
+     */
+    String ROUTER_KNOWLEDGE = "/article/knowledge";
+
 }

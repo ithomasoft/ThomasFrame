@@ -46,7 +46,7 @@ public class SplashActivity extends ThomasActivity {
                 Utils.runOnUiThreadDelayed(() -> {
                     ARouterHelper.startActivity(RouterHub.ROUTER_HOME);
                     ActivityUtils.finishActivity(mActivity);
-                }, lottieSplash.getDuration() * 3);
+                }, lottieSplash.getDuration() * 2);
             }
         });
 

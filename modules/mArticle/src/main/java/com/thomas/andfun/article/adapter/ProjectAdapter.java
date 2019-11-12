@@ -1,4 +1,4 @@
-package com.thomas.andfun.home.adapter;
+package com.thomas.andfun.article.adapter;
 
 import android.text.TextUtils;
 
@@ -9,8 +9,8 @@ import androidx.core.text.HtmlCompat;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.thomas.andfun.home.R;
-import com.thomas.andfun.home.bean.ProjectBean;
+import com.thomas.andfun.article.R;
+import com.thomas.andfun.article.bean.ProjectBean;
 import com.thomas.sdk.helper.ImageHelper;
 
 import java.util.List;

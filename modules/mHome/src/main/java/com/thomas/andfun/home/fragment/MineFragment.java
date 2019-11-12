@@ -21,7 +21,7 @@ import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.ImageHelper;
 import com.thomas.sdk.helper.UserHelper;
-import com.thomas.sdk.ui.ThomasMvpFragment;
+import com.thomas.sdk.ui.LazyThomasMvpFragment;
 
 /**
  * @author Thomas
@@ -30,7 +30,7 @@ import com.thomas.sdk.ui.ThomasMvpFragment;
  * @updatelog
  * @since
  */
-public class MineFragment extends ThomasMvpFragment<MinePresenter> implements MineContract.View {
+public class MineFragment extends LazyThomasMvpFragment<MinePresenter> implements MineContract.View {
 
     private AppCompatImageView bgMine, ivHead;
     private SuperTextView tvNickname, btnIntegral;
@@ -61,22 +61,41 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
         ivHead = findViewById(R.id.iv_head);
         btnIntegral = findViewById(R.id.btn_integral);
         tvNickname = findViewById(R.id.tv_nick_name);
-        if (UserHelper.isLogin()) {
-            tvNickname.setCenterString(UserHelper.getNickname());
-            btnIntegral.setVisibility(View.VISIBLE);
-        } else {
-            btnIntegral.setVisibility(View.GONE);
-        }
         ImageHelper.showSimpleWithBlur(bgMine, R.drawable.bg_mine);
-        ImageHelper.showSimpleSquare(ivHead, R.mipmap.ic_launcher_round);
         applyThomasClickListener(findViewById(R.id.tv_nick_name), findViewById(R.id.btn_integral), findViewById(R.id.btn_collection), findViewById(R.id.btn_share)
                 , findViewById(R.id.btn_scan), findViewById(R.id.btn_todo)
                 , findViewById(R.id.btn_setting), findViewById(R.id.btn_about));
     }
 
     @Override
-    public void doBusiness() {
+    protected void onFirstUserVisible() {
+        super.onFirstUserVisible();
+        BarUtils.setStatusBarLightMode(mActivity, false);
+        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, android.R.color.transparent));
 
+        if (UserHelper.isLogin()) {
+            tvNickname.setCenterString(UserHelper.getNickname());
+            btnIntegral.setVisibility(View.VISIBLE);
+        } else {
+            tvNickname.setCenterString("点击进行登录");
+            btnIntegral.setVisibility(View.GONE);
+        }
+        ImageHelper.showSimpleSquare(ivHead, R.mipmap.ic_launcher_round);
+    }
+
+    @Override
+    protected void onUserVisible() {
+        super.onUserVisible();
+        BarUtils.setStatusBarLightMode(mActivity, false);
+        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, android.R.color.transparent));
+
+        if (UserHelper.isLogin()) {
+            tvNickname.setCenterString(UserHelper.getNickname());
+            btnIntegral.setVisibility(View.VISIBLE);
+        } else {
+            tvNickname.setCenterString("点击进行登录");
+            btnIntegral.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -121,21 +140,6 @@ public class MineFragment extends ThomasMvpFragment<MinePresenter> implements Mi
 
     @Override
     public void onFailed(String failed) {
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        BarUtils.setStatusBarLightMode(mActivity, false);
-        BarUtils.setStatusBarColor(mActivity, ContextCompat.getColor(mActivity, android.R.color.transparent));
-        if (UserHelper.isLogin()) {
-            tvNickname.setCenterString(UserHelper.getNickname());
-            btnIntegral.setVisibility(View.VISIBLE);
-        } else {
-            tvNickname.setCenterString("点击进行登录");
-            btnIntegral.setVisibility(View.GONE);
-        }
 
     }
 }

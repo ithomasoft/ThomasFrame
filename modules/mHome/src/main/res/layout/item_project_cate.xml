@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.allen.library.SuperTextView
+        android:id="@+id/tv_project_cate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:sDividerLineType="none"
+        app:sShapeSelectorPressedColor="@color/thomas_color_app_background"
+        app:sShapeStrokeColor="@color/colorAccent"
+        app:sShapeStrokeWidth="1dp"
+        app:sShapeCornersRadius="16dp"
+        app:sCenterTextColor="@color/thomas_color_normal_text"
+        app:sCenterTextSize="@dimen/thomas_app_small_size"
+        app:sUseRipple="true"
+        app:sUseShape="true" />
+</androidx.constraintlayout.widget.ConstraintLayout>
