@@ -91,10 +91,10 @@ public class NewsFragment extends LazyThomasMvpFragment<NewsPresenter> implement
         initHead();
         titleBar.setListener((view, action, extra) -> {
             if (action == ThomasTitleBar.ACTION_RIGHT_BUTTON) {
-                ToastUtils.showShort("打开搜索页面");
+                ARouterHelper.startActivity(RouterHub.ROUTER_SEARCH);
             }
             if (action == ThomasTitleBar.ACTION_LEFT_TEXT) {
-                ToastUtils.showShort("广场文章列表");
+                ARouterHelper.startActivity(RouterHub.ROUTER_SQUARE);
             }
         });
 

@@ -71,4 +71,14 @@ public interface RouterHub {
      */
     String ROUTER_KNOWLEDGE = "/article/knowledge";
 
+    /**
+     * 广场列表页
+     */
+    String ROUTER_SQUARE = "/article/square";
+
+    /**
+     * 搜索列表页
+     */
+    String ROUTER_SEARCH = "/article/search";
+
 }
