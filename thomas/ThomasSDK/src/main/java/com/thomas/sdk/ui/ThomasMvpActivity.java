@@ -1,5 +1,7 @@
 package com.thomas.sdk.ui;
 
+import android.os.Bundle;
+
 import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.core.mvp.IBaseMvpView;
 
@@ -14,8 +16,8 @@ public abstract class ThomasMvpActivity<P extends BaseMvpPresenter> extends Thom
     protected P presenter;
 
     @Override
-    public void setRootLayout(int layoutId) {
-        super.setRootLayout(layoutId);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         presenter = createPresenter();
         if (presenter != null) {
             presenter.attachView(this);

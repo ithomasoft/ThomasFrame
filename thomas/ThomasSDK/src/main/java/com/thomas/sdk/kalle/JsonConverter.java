@@ -1,14 +1,10 @@
 package com.thomas.sdk.kalle;
 
-import android.content.Context;
-import android.text.TextUtils;
-
 import com.alibaba.fastjson.JSONObject;
-import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.LogUtils;
 import com.thomas.core.utils.StringUtils;
 import com.thomas.sdk.R;
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.UserHelper;
 import com.yanzhenjie.kalle.Response;

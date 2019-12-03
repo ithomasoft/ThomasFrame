@@ -20,7 +20,7 @@ import com.thomas.andfun.article.ui.presenter.SquarePresenter;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
@@ -131,6 +131,7 @@ public class SquareActivity extends ThomasMvpActivity<SquarePresenter> implement
 
     @Override
     public void getSquareArticleEmpty() {
+        smartRefreshLayout.finishRefresh();
         holder.showEmpty();
     }
 

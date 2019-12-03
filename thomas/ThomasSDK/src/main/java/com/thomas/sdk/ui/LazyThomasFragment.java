@@ -28,9 +28,10 @@ public abstract class LazyThomasFragment extends LazyFragment {
         return true;
     }
 
+
     @Override
-    public void setRootLayout(int layoutId) {
-        super.setRootLayout(layoutId);
+    public void setContentView() {
+        super.setContentView();
         unbinder = ButterKnife.bind(this, mContentView);
     }
 

@@ -1,5 +1,13 @@
 package com.thomas.sdk.ui;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.core.mvp.IBaseMvpView;
 
@@ -13,10 +21,10 @@ import com.thomas.core.mvp.IBaseMvpView;
 public abstract class ThomasMvpFragment<P extends BaseMvpPresenter> extends ThomasFragment implements IBaseMvpView {
     protected P presenter;
 
+
     @Override
-    public void setRootLayout(int layoutId) {
-        super.setRootLayout(layoutId);
-        //创建present
+    public void setContentView() {
+        super.setContentView();
         presenter = createPresenter();
         if (presenter != null) {
             presenter.attachView(this);

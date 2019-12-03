@@ -14,9 +14,8 @@ public abstract class LazyThomasMvpFragment<P extends BaseMvpPresenter> extends 
     protected P presenter;
 
     @Override
-    public void setRootLayout(int layoutId) {
-        super.setRootLayout(layoutId);
-        //创建present
+    public void setContentView() {
+        super.setContentView();
         presenter = createPresenter();
         if (presenter != null) {
             presenter.attachView(this);

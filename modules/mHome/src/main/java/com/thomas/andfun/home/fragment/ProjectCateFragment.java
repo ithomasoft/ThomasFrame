@@ -16,10 +16,10 @@ import com.thomas.andfun.home.fragment.contract.ProjectCateContract;
 import com.thomas.andfun.home.fragment.presenter.ProjectCatePresenter;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.ui.LazyThomasMvpFragment;
+import com.thomas.service.RouterHub;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +51,7 @@ public class ProjectCateFragment extends LazyThomasMvpFragment<ProjectCatePresen
     public boolean isNeedRegister() {
         return false;
     }
+
 
     @Override
     public void initData(@NonNull Bundle bundle) {

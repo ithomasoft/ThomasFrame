@@ -11,7 +11,7 @@ import com.airbnb.lottie.LottieOnCompositionLoadedListener;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.Utils;
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.ui.ThomasActivity;
 

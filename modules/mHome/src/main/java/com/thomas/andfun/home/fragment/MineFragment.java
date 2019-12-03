@@ -16,12 +16,12 @@ import com.thomas.andfun.home.fragment.presenter.MinePresenter;
 import com.thomas.andfun.home.valid.LoginValid;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.core.utils.ToastUtils;
-import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.ImageHelper;
 import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.LazyThomasMvpFragment;
+import com.thomas.service.RouterHub;
 
 /**
  * @author Thomas

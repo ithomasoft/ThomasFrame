@@ -22,7 +22,7 @@ import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.dialog.NormalDialog;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.helper.LoadingHelper;

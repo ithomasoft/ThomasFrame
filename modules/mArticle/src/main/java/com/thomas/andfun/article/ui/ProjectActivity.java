@@ -20,7 +20,7 @@ import com.thomas.andfun.article.ui.presenter.ProjectPresenter;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;

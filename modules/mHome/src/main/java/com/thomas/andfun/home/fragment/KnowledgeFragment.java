@@ -17,10 +17,10 @@ import com.thomas.andfun.home.fragment.contract.KnowledgeContract;
 import com.thomas.andfun.home.fragment.presenter.KnowledgePresenter;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.ui.LazyThomasMvpFragment;
+import com.thomas.service.RouterHub;
 
 import java.util.ArrayList;
 import java.util.List;

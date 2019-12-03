@@ -19,9 +19,10 @@ import com.thomas.andfun.home.fragment.NewsFragment;
 import com.thomas.andfun.home.fragment.ProjectCateFragment;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.res.widget.ThomasNoScrollViewPager;
-import com.thomas.sdk.RouterHub;
 import com.thomas.sdk.ui.LazyThomasMvpFragment;
 import com.thomas.sdk.ui.ThomasActivity;
+import com.thomas.sdk.ui.ThomasMvpFragment;
+import com.thomas.service.RouterHub;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,26 +88,23 @@ public class HomeActivity extends ThomasActivity {
 
         });
         vpContent.setOffscreenPageLimit(fragments.size());
-        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                if (menuItem.getItemId() == R.id.navigation_news) {
-                    vpContent.setCurrentItem(0, false);
-                }
-
-                if (menuItem.getItemId() == R.id.navigation_knowledge) {
-                    vpContent.setCurrentItem(1, false);
-                }
-
-                if (menuItem.getItemId() == R.id.navigation_project) {
-                    vpContent.setCurrentItem(2, false);
-                }
-
-                if (menuItem.getItemId() == R.id.navigation_mine) {
-                    vpContent.setCurrentItem(3, false);
-                }
-                return true;
+        navView.setOnNavigationItemSelectedListener(menuItem -> {
+            if (menuItem.getItemId() == R.id.navigation_news) {
+                vpContent.setCurrentItem(0, false);
             }
+
+            if (menuItem.getItemId() == R.id.navigation_knowledge) {
+                vpContent.setCurrentItem(1, false);
+            }
+
+            if (menuItem.getItemId() == R.id.navigation_project) {
+                vpContent.setCurrentItem(2, false);
+            }
+
+            if (menuItem.getItemId() == R.id.navigation_mine) {
+                vpContent.setCurrentItem(3, false);
+            }
+            return true;
         });
     }
 

@@ -18,7 +18,7 @@ import com.thomas.andfun.article.R;
 import com.thomas.andfun.article.R2;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.ui.ThomasActivity;
 
 import butterknife.BindView;

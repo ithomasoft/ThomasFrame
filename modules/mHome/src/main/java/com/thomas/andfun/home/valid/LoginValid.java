@@ -1,6 +1,6 @@
 package com.thomas.andfun.home.valid;
 
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.delay.Valid;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.UserHelper;

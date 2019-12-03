@@ -19,15 +19,13 @@ import com.thomas.andfun.login.ui.presenter.RegisterPresenter;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.RouterHub;
+import com.thomas.service.RouterHub;
 import com.thomas.sdk.delay.SingleCall;
-import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author Thomas

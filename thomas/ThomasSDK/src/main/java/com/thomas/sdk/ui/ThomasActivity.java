@@ -1,6 +1,7 @@
 package com.thomas.sdk.ui;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -13,7 +14,6 @@ import androidx.appcompat.app.SkinAppCompatDelegateImpl;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.thomas.core.ui.BaseActivity;
 import com.thomas.core.utils.ActivityUtils;
-import com.thomas.core.utils.BarUtils;
 import com.thomas.sdk.helper.EventHelper;
 import com.thomas.sdk.helper.HttpHelper;
 import com.thomas.sdk.helper.StatusHelper;
@@ -40,18 +40,9 @@ public abstract class ThomasActivity extends BaseActivity {
     }
 
     @Override
-    public void setRootLayout(int layoutId) {
-        super.setRootLayout(layoutId);
+    public void setContentView() {
+        super.setContentView();
         ButterKnife.bind(this);
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (isNeedRegister()) {
-            EventHelper.unregister(this);
-        }
     }
 
     @Override
@@ -78,7 +69,6 @@ public abstract class ThomasActivity extends BaseActivity {
     public void onThomasClick(@NonNull View view) {
 
     }
-
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -112,6 +102,9 @@ public abstract class ThomasActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        if (isNeedRegister()) {
+            EventHelper.unregister(this);
+        }
         if (ActivityUtils.getTopActivity() != null) {
             //取消当前页面的所有网络请求。
             HttpHelper.cancelRequest(this);

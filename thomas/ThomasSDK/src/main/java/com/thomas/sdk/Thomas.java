@@ -17,6 +17,7 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.tencent.bugly.Bugly;
 import com.thomas.core.BaseApplication;
+import com.thomas.core.utils.AppUtils;
 import com.thomas.core.utils.ProcessUtils;
 import com.thomas.core.utils.Utils;
 import com.thomas.sdk.adapter.StatusAdapter;
@@ -78,13 +79,8 @@ public class Thomas extends BaseApplication {
     }
 
     @Override
-    protected boolean configDebug() {
-        return BuildConfig.DEBUG;
-    }
-
-    @Override
     public void initCrashReport() {
-        Bugly.init(this, "26bc13f96b", BuildConfig.DEBUG);
+        Bugly.init(this, "26bc13f96b", AppUtils.isAppDebug());
     }
 
     @Override
@@ -103,7 +99,7 @@ public class Thomas extends BaseApplication {
      * 初始化全局统一状态组件
      */
     private void initStatusHelper() {
-        StatusHelper.debug(BuildConfig.DEBUG);
+        StatusHelper.debug(AppUtils.isAppDebug());
         StatusHelper.initDefault(new StatusAdapter());
     }
 
@@ -122,7 +118,7 @@ public class Thomas extends BaseApplication {
     }
 
     private void initARouter() {
-        if (BuildConfig.DEBUG) {
+        if (AppUtils.isAppDebug()) {
             // 打印日志
             ARouter.openLog();
             // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)

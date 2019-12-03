@@ -29,8 +29,8 @@ public abstract class ThomasFragment extends BaseFragment {
     }
 
     @Override
-    public void setRootLayout(int layoutId) {
-        super.setRootLayout(layoutId);
+    public void setContentView() {
+        super.setContentView();
         unbinder = ButterKnife.bind(this, mContentView);
     }
 
@@ -48,16 +48,10 @@ public abstract class ThomasFragment extends BaseFragment {
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onDestroyView() {
         if (isNeedRegister()) {
             EventHelper.unregister(this);
         }
-    }
-
-
-    @Override
-    public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
     }
