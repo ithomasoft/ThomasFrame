@@ -62,7 +62,7 @@ public interface RouterHub {
     /**
      * 积分规则页
      */
-    String ROUTER_RULES = "/article/rules";
+    String ROUTER_RULES = "/about/rules";
 
     /**
      * 文章内容页
