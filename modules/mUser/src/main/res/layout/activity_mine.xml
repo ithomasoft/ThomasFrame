@@ -54,7 +54,7 @@
             app:sLeftTextColor="@color/thomas_color_normal_text"
             app:sLeftTextSize="@dimen/thomas_app_content_size"
             app:sLeftTvDrawableHeight="12dp"
-            app:sLeftTvDrawableRight="@drawable/ic_edit_black_24dp"
+            app:sLeftTvDrawableRight="@drawable/ic_edit"
             app:sLeftTvDrawableWidth="12dp"
             app:sUseRipple="false" />
 

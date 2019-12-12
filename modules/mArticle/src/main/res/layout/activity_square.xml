@@ -10,16 +10,17 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        app:centerText="广场"
         app:centerTextColor="@color/thomas_color_app_title_text"
         app:centerTextMarquee="true"
         app:centerType="textView"
-        app:centerText="广场"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:leftImageResource="@drawable/ic_arrow_back"
         app:leftType="imageButton"
-        app:rightType="none"
+        app:rightImageResource="@drawable/ic_add_circle_outline"
+        app:rightType="imageButton"
         app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -33,6 +34,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_content"
+            android:overScrollMode="never"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>

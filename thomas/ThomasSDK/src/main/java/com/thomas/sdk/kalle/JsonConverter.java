@@ -39,9 +39,9 @@ public class JsonConverter implements Converter {
                 httpEntity = JSONObject.parseObject(serverJson, BaseBean.class);
             } catch (Exception e) {
                 httpEntity = new BaseBean();
-                httpEntity.setErrorCode(-1);
-                httpEntity.setErrorMsg(StringUtils.getString(R.string.http_server_data_format_error));
-                httpEntity.setData("");
+                httpEntity.setErrorCode(666);
+                httpEntity.setErrorMsg("");
+                httpEntity.setData(serverJson);
             }
 
             if (httpEntity.getErrorCode() == 0) {
@@ -50,14 +50,17 @@ public class JsonConverter implements Converter {
                 } catch (Exception e) {
                     failedData = (F) StringUtils.getString(R.string.http_server_data_format_error);
                 }
+            } else if (httpEntity.getErrorCode() == (666)) {
+                succeedData = (S) httpEntity.getData();
             } else {
                 //token失效，需要重新登录
                 if (httpEntity.getErrorCode() == (-1001)) {
                     UserHelper.cleanUserInfo();
                     ARouterHelper.startActivity(RouterHub.ROUTER_LOGIN);
+                } else {
+                    // The server failed to read the wrong information.
+                    failedData = (F) httpEntity.getErrorMsg();
                 }
-                // The server failed to read the wrong information.
-                failedData = (F) httpEntity.getErrorMsg();
 
             }
 

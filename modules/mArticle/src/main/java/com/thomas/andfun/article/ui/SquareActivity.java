@@ -13,13 +13,16 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import com.thomas.andfun.article.R;
 import com.thomas.andfun.article.R2;
+import com.thomas.andfun.article.action.SharedAction;
 import com.thomas.andfun.article.adapter.SquareAdapter;
 import com.thomas.andfun.article.bean.SquareBean;
 import com.thomas.andfun.article.ui.contract.SquareContract;
 import com.thomas.andfun.article.ui.presenter.SquarePresenter;
+import com.thomas.andfun.article.valid.LoginValid;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
+import com.thomas.sdk.delay.SingleCall;
 import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.StatusHelper;
@@ -76,6 +79,9 @@ public class SquareActivity extends ThomasMvpActivity<SquarePresenter> implement
         titleBar.setListener((view, action, extra) -> {
             if (action == ThomasTitleBar.ACTION_LEFT_BUTTON) {
                 ActivityUtils.finishActivity(mActivity);
+            }
+            if (action == ThomasTitleBar.ACTION_RIGHT_BUTTON) {
+                SingleCall.getInstance().addAction(new SharedAction()).addValid(new LoginValid()).doCall();
             }
         });
         holder = StatusHelper.getDefault().wrap(smartRefreshLayout);

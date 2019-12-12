@@ -1,5 +1,6 @@
 package com.thomas.andfun.home.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,7 +15,9 @@ import com.thomas.andfun.home.action.MySharedAction;
 import com.thomas.andfun.home.fragment.contract.MineContract;
 import com.thomas.andfun.home.fragment.presenter.MinePresenter;
 import com.thomas.andfun.home.valid.LoginValid;
+import com.thomas.core.constant.PermissionConstants;
 import com.thomas.core.utils.BarUtils;
+import com.thomas.core.utils.PermissionUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
@@ -125,7 +128,18 @@ public class MineFragment extends LazyThomasMvpFragment<MinePresenter> implement
 
         }
         if (clickId == R.id.btn_scan) {
-            ToastUtils.showLong("超级扫码");
+            PermissionUtils.permission(PermissionConstants.CAMERA).callback(new PermissionUtils.SimpleCallback() {
+                @Override
+                public void onGranted() {
+                    ARouterHelper.startActivity(RouterHub.ROUTER_SCAN);
+                }
+
+                @Override
+                public void onDenied() {
+
+                }
+            }).request();
+
         }
         if (clickId == R.id.btn_todo) {
             ToastUtils.showLong("待办清单");

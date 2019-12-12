@@ -22,6 +22,7 @@ import com.thomas.andfun.user.ui.presenter.IntegralPresenter;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
+import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.StatusHelper;
@@ -82,6 +83,10 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
             if (action == ThomasTitleBar.ACTION_LEFT_BUTTON) {
                 ActivityUtils.finishActivity(mActivity);
             }
+
+            if (action == ThomasTitleBar.ACTION_RIGHT_BUTTON) {
+                ARouterHelper.startActivity(RouterHub.ROUTER_RULES_INTEGRAL);
+            }
         });
         holder = StatusHelper.getDefault().wrap(smartRefreshLayout);
         smartRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
@@ -106,7 +111,7 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
     @Override
     public void doBusiness() {
         presenter.getMyIntegral();
-        LoadingHelper.showLoading();
+        holder.showLoading();
         presenter.getIntegralList(page);
 
     }
@@ -124,6 +129,7 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
 
     @Override
     public void onSuccess(List<IntegralListBean.DatasBean> datas) {
+        holder.showLoadSuccess();
         smartRefreshLayout.finishRefresh(true);
         smartRefreshLayout.finishLoadMore(true);
         adapter.addData(datas);
@@ -147,6 +153,6 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
 
     @Override
     public void onMyIntegralFailed(String failed) {
-
+        ToastUtils.showShort(failed);
     }
 }

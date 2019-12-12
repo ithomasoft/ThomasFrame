@@ -40,15 +40,10 @@ public class SplashActivity extends ThomasActivity {
 
     @Override
     public void doBusiness() {
-        lottieSplash.addLottieOnCompositionLoadedListener(new LottieOnCompositionLoadedListener() {
-            @Override
-            public void onCompositionLoaded(LottieComposition composition) {
-                Utils.runOnUiThreadDelayed(() -> {
-                    ARouterHelper.startActivity(RouterHub.ROUTER_HOME);
-                    ActivityUtils.finishActivity(mActivity);
-                }, lottieSplash.getDuration() * 2);
-            }
-        });
+        lottieSplash.addLottieOnCompositionLoadedListener(composition -> Utils.runOnUiThreadDelayed(() -> {
+            ARouterHelper.startActivity(RouterHub.ROUTER_HOME);
+            ActivityUtils.finishActivity(mActivity);
+        }, lottieSplash.getDuration() * 2));
 
 
     }

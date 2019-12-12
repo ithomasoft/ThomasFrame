@@ -56,6 +56,7 @@ public interface RouterHub {
      */
     String ROUTER_ABOUT = "/about/about";
 
+
     /**
      * 文章内容页
      */
@@ -77,8 +78,28 @@ public interface RouterHub {
     String ROUTER_SQUARE = "/article/square";
 
     /**
-     * 搜索列表页
+     * 分享页
+     */
+    String ROUTER_ARTICLE_SHARE = "/article/share";
+
+    /**
+     * 搜索页
      */
     String ROUTER_SEARCH = "/article/search";
+
+    /**
+     * 搜索结果页
+     */
+    String ROUTER_RESULT = "/article/result";
+
+    /**
+     * 积分规则页
+     */
+    String ROUTER_RULES_INTEGRAL = "/article/rules_integral";
+
+    /**
+     * 扫码页
+     */
+    String ROUTER_SCAN = "/scan/home";
 
 }

@@ -16,8 +16,8 @@ public abstract class ThomasMvpActivity<P extends BaseMvpPresenter> extends Thom
     protected P presenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void setContentView() {
+        super.setContentView();
         presenter = createPresenter();
         if (presenter != null) {
             presenter.attachView(this);

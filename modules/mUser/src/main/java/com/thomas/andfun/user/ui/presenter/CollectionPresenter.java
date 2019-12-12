@@ -23,7 +23,6 @@ public class CollectionPresenter extends BaseMvpPresenter<CollectionContract.Mod
 
     @Override
     public void getCollectionList(int page) {
-
             getModel().getCollectionList(page, new BaseThomasCallback<CollectionListBean>() {
                 @Override
                 protected void onSuccess(CollectionListBean succeed) {
@@ -48,8 +47,7 @@ public class CollectionPresenter extends BaseMvpPresenter<CollectionContract.Mod
 
     @Override
     public void unCollection(int position, int id, int originId) {
-
-            getModel().unCollection(id, originId, new BaseThomasCallback<String>() {
+        getModel().unCollection(id, originId, new BaseThomasCallback<String>(false) {
                 @Override
                 protected void onSuccess(String succeed) {
                     if (isViewAttached()) {

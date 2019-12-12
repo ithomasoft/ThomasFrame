@@ -10,16 +10,64 @@
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        app:centerSearchRightType="action"
         app:centerTextColor="@color/thomas_color_app_title_text"
         app:centerTextMarquee="true"
         app:centerType="searchView"
-        app:centerSearchRightType="action"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:leftImageResource="@drawable/ic_arrow_back"
         app:leftType="imageButton"
-        app:rightType="textView"
         app:rightText="搜索"
+        app:rightType="textView"
         app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_hot_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="热门搜索"
+        android:textColor="@color/thomas_color_normal_text"
+        android:textSize="@dimen/thomas_app_content_size"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_hot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingStart="16pt"
+        android:paddingEnd="16pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hot_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_history_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="历史搜索"
+        android:textColor="@color/thomas_color_normal_text"
+        android:textSize="@dimen/thomas_app_content_size"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_hot" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_history"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_history_title" />
 </androidx.constraintlayout.widget.ConstraintLayout>

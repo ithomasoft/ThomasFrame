@@ -19,5 +19,5 @@ dependencies {
     implementation project(path: ':modules:mAbout')
     implementation project(path: ':modules:mSetting')
     implementation project(path: ':modules:mArticle')
-
+    implementation project(path: ':modules:mScan')
 }

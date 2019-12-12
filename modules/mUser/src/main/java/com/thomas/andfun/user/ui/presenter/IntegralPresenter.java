@@ -24,7 +24,6 @@ public class IntegralPresenter extends BaseMvpPresenter<IntegralContract.Model, 
 
     @Override
     public void getIntegralList(int page) {
-
             getModel().getIntegralList(page, new BaseThomasCallback<IntegralListBean>() {
                 @Override
                 protected void onSuccess(IntegralListBean succeed) {
@@ -49,7 +48,6 @@ public class IntegralPresenter extends BaseMvpPresenter<IntegralContract.Model, 
 
     @Override
     public void getMyIntegral() {
-
             getModel().getMyIntegral(new BaseThomasCallback<IntegralBean>() {
                 @Override
                 protected void onSuccess(IntegralBean succeed) {

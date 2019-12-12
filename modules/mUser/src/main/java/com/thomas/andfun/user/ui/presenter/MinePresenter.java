@@ -23,8 +23,7 @@ public class MinePresenter extends BaseMvpPresenter<MineContract.Model, MineCont
 
     @Override
     public void getMyIntegral() {
-
-        getModel().getMyIntegral(new BaseThomasCallback<IntegralBean>() {
+        getModel().getMyIntegral(new BaseThomasCallback<IntegralBean>(false) {
             @Override
             protected void onSuccess(IntegralBean succeed) {
                 if (isViewAttached()) {
@@ -43,8 +42,7 @@ public class MinePresenter extends BaseMvpPresenter<MineContract.Model, MineCont
 
     @Override
     public void logout() {
-
-        getModel().logout(new BaseThomasCallback<String>() {
+        getModel().logout(new BaseThomasCallback<String>(false) {
             @Override
             protected void onSuccess(String succeed) {
                 if (isViewAttached()) {

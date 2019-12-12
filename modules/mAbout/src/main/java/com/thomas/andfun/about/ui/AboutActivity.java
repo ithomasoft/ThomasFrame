@@ -6,14 +6,17 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.allen.library.SuperTextView;
 import com.thomas.andfun.about.R;
 import com.thomas.andfun.about.R2;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.service.RouterHub;
+import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.ui.ThomasActivity;
+import com.thomas.service.RouterHub;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * @author Thomas
@@ -27,6 +30,16 @@ public class AboutActivity extends ThomasActivity {
 
     @BindView(R2.id.title_bar)
     ThomasTitleBar titleBar;
+    @BindView(R2.id.btn_point)
+    SuperTextView btnPoint;
+    @BindView(R2.id.btn_web)
+    SuperTextView btnWeb;
+    @BindView(R2.id.btn_author)
+    SuperTextView btnAuthor;
+    @BindView(R2.id.btn_open)
+    SuperTextView btnOpen;
+    @BindView(R2.id.btn_app)
+    SuperTextView btnApp;
 
     @Override
     public boolean isNeedRegister() {
@@ -50,6 +63,7 @@ public class AboutActivity extends ThomasActivity {
                 ActivityUtils.finishActivity(mActivity);
             }
         });
+        applyThomasClickListener(btnPoint, btnWeb, btnAuthor, btnOpen, btnApp);
     }
 
     @Override
@@ -57,4 +71,11 @@ public class AboutActivity extends ThomasActivity {
 
     }
 
+    @Override
+    public void onThomasClick(@NonNull View view) {
+        int clickId = view.getId();
+        if (clickId == R.id.btn_point) {
+            ARouterHelper.startActivity(RouterHub.ROUTER_RULES_INTEGRAL);
+        }
+    }
 }

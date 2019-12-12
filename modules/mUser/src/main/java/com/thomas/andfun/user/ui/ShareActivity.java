@@ -127,7 +127,7 @@ public class ShareActivity extends ThomasMvpActivity<SharePresenter> implements 
 
     @Override
     public void doBusiness() {
-        LoadingHelper.showLoading();
+        holder.showLoading();
         presenter.getShareList(page);
     }
 
@@ -144,6 +144,7 @@ public class ShareActivity extends ThomasMvpActivity<SharePresenter> implements 
 
     @Override
     public void onSuccess(List<ShareListBean.ShareArticlesBean.DatasBean> datas) {
+        holder.showLoadSuccess();
         smartRefreshLayout.finishRefresh(true);
         smartRefreshLayout.finishLoadMore(true);
         adapter.addData(datas);

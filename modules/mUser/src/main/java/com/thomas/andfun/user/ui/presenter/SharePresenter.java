@@ -23,7 +23,6 @@ public class SharePresenter extends BaseMvpPresenter<ShareContract.Model, ShareC
 
     @Override
     public void getShareList(int page) {
-
         getModel().getShareList(page, new BaseThomasCallback<ShareListBean>() {
             @Override
             protected void onSuccess(ShareListBean succeed) {
@@ -49,8 +48,7 @@ public class SharePresenter extends BaseMvpPresenter<ShareContract.Model, ShareC
 
     @Override
     public void unShare(int position, int id) {
-
-        getModel().unShare(id, new BaseThomasCallback<String>() {
+        getModel().unShare(id, new BaseThomasCallback<String>(false) {
             @Override
             protected void onSuccess(String succeed) {
                 if (isViewAttached()) {

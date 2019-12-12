@@ -131,7 +131,7 @@ public class CollectionActivity extends ThomasMvpActivity<CollectionPresenter> i
 
     @Override
     public void doBusiness() {
-        LoadingHelper.showLoading();
+        holder.showLoading();
         presenter.getCollectionList(page);
     }
 
