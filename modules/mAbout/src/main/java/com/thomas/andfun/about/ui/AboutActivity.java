@@ -75,7 +75,10 @@ public class AboutActivity extends ThomasActivity {
     public void onThomasClick(@NonNull View view) {
         int clickId = view.getId();
         if (clickId == R.id.btn_point) {
-            ARouterHelper.startActivity(RouterHub.ROUTER_RULES_INTEGRAL);
+            ARouterHelper.startActivity(RouterHub.ROUTER_RULES);
+        }
+        if (clickId == R.id.btn_web) {
+            ARouterHelper.startActivity(RouterHub.ROUTER_WEB);
         }
     }
 }

@@ -85,7 +85,7 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
             }
 
             if (action == ThomasTitleBar.ACTION_RIGHT_BUTTON) {
-                ARouterHelper.startActivity(RouterHub.ROUTER_RULES_INTEGRAL);
+                ARouterHelper.startActivity(RouterHub.ROUTER_RULES);
             }
         });
         holder = StatusHelper.getDefault().wrap(smartRefreshLayout);

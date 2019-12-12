@@ -55,7 +55,14 @@ public interface RouterHub {
      * 关于我们页
      */
     String ROUTER_ABOUT = "/about/about";
-
+    /**
+     * 关于网站页
+     */
+    String ROUTER_WEB = "/about/web";
+    /**
+     * 积分规则页
+     */
+    String ROUTER_RULES = "/article/rules";
 
     /**
      * 文章内容页
@@ -92,10 +99,6 @@ public interface RouterHub {
      */
     String ROUTER_RESULT = "/article/result";
 
-    /**
-     * 积分规则页
-     */
-    String ROUTER_RULES_INTEGRAL = "/article/rules_integral";
 
     /**
      * 扫码页
