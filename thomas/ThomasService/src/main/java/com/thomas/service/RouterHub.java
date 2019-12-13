@@ -51,6 +51,11 @@ public interface RouterHub {
      * 设置中心页
      */
     String ROUTER_SETTING = "/setting/setting";
+
+    /**
+     * 意见反馈页
+     */
+    String ROUTER_FEEDBACK = "/setting/feedback";
     /**
      * 关于我们页
      */
@@ -63,7 +68,18 @@ public interface RouterHub {
      * 积分规则页
      */
     String ROUTER_RULES = "/about/rules";
-
+    /**
+     * 关于作者页
+     */
+    String ROUTER_AUTHOR = "/about/author";
+    /**
+     * 开源项目页
+     */
+    String ROUTER_OPEN = "/about/open";
+    /**
+     * 更多应用页
+     */
+    String ROUTER_APP = "/about/app";
     /**
      * 文章内容页
      */

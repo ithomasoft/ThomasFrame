@@ -50,6 +50,8 @@
         app:sDividerLineType="none"
         app:sLeftTextString="清除缓存"
         app:sRightIconHeight="16dp"
+        app:sRightTextColor="@color/thomas_color_hint_text"
+        app:sRightTextSize="@dimen/thomas_app_small_size"
         app:sRightIconRes="@drawable/ic_keyboard_arrow_right_black_24dp"
         app:sRightIconWidth="16dp"
         app:sShapeSelectorNormalColor="@android:color/white"

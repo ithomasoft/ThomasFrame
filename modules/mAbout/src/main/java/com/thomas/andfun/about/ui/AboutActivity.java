@@ -80,5 +80,14 @@ public class AboutActivity extends ThomasActivity {
         if (clickId == R.id.btn_web) {
             ARouterHelper.startActivity(RouterHub.ROUTER_WEB);
         }
+        if (clickId == R.id.btn_author) {
+            ARouterHelper.startActivity(RouterHub.ROUTER_AUTHOR);
+        }
+        if (clickId == R.id.btn_app) {
+            ARouterHelper.startActivity(RouterHub.ROUTER_APP);
+        }
+        if (clickId == R.id.btn_open) {
+            ARouterHelper.startActivity(RouterHub.ROUTER_OPEN);
+        }
     }
 }

@@ -34,6 +34,4 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 	implementation project(path: ':thomas:ThomasSDK')
-    implementation 'com.just.agentweb:agentweb:4.1.2'
-    implementation 'org.jsoup:jsoup:1.12.1'
 }

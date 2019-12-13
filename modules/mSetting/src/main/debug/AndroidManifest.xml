@@ -19,12 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/thomas_AppTheme">
         <activity
-            android:name=".ui.SettingActivity"
+            android:name=".ui.FeedbackActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
-
-        <!-- 在单独运行的业务Module的时候需要配置 测试 的BASE_URL -->
+        <activity
+            android:name=".ui.SettingActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|layoutDirection"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" /> <!-- 在单独运行的业务Module的时候需要配置 测试 的BASE_URL -->
         <!-- 在集成业务Module的时候去使用宿主配置的BASE_URL -->
         <meta-data
             android:name="base_url"

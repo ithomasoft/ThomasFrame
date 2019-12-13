@@ -16,6 +16,7 @@ import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ScreenUtils;
 import com.thomas.core.utils.SizeUtils;
 import com.thomas.core.utils.ToastUtils;
+import com.thomas.core.utils.Utils;
 import com.thomas.core.utils.VibrateUtils;
 import com.thomas.res.dialog.NormalDialog;
 import com.thomas.res.dialog.TipsDialog;
@@ -80,12 +81,7 @@ public class ScanActivity extends ThomasActivity {
 
             @Override
             public void onOpenCameraError() {
-                DialogHelper.showTipsCenter("相机出现异常，请稍后重试", new TipsDialog.OnSureClickListener() {
-                    @Override
-                    public void onSure() {
-                        ActivityUtils.finishActivity(mActivity);
-                    }
-                });
+                DialogHelper.showTipsCenter("相机出现异常，请稍后重试", () -> ActivityUtils.finishActivity(mActivity));
             }
         });
     }
@@ -103,6 +99,8 @@ public class ScanActivity extends ThomasActivity {
                 ClipData mClipData = ClipData.newPlainText("OcrText", result);
                 clipboardManager.setPrimaryClip(mClipData);
                 ToastUtils.showShort("复制成功");
+                Utils.runOnUiThreadDelayed(() -> ActivityUtils.finishActivity(mActivity), 500);
+
             }
         });
 

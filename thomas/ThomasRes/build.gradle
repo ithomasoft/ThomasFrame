@@ -43,4 +43,5 @@ dependencies {
     api 'skin.support:skin-support-constraint-layout:4.0.4'
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
     api 'com.youth.banner:banner:1.4.10'
+    api 'com.just.agentweb:agentweb:4.1.2'
 }
