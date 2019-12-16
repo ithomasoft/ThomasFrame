@@ -1,13 +1,13 @@
 package com.thomas.andfun.home.ui;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,18 +18,14 @@ import com.thomas.andfun.home.fragment.MineFragment;
 import com.thomas.andfun.home.fragment.NewsFragment;
 import com.thomas.andfun.home.fragment.ProjectCateFragment;
 import com.thomas.core.utils.BarUtils;
-import com.thomas.res.widget.ThomasNoScrollViewPager;
 import com.thomas.sdk.ui.LazyThomasMvpFragment;
 import com.thomas.sdk.ui.ThomasActivity;
-import com.thomas.sdk.ui.ThomasMvpFragment;
 import com.thomas.service.RouterHub;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
-import static androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT;
 
 /**
  * @author Thomas
@@ -41,7 +37,7 @@ import static androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ON
 @Route(path = RouterHub.ROUTER_HOME)
 public class HomeActivity extends ThomasActivity {
     @BindView(R2.id.vp_content)
-    ThomasNoScrollViewPager vpContent;
+    ViewPager2 vpContent;
     @BindView(R2.id.nav_view)
     BottomNavigationView navView;
 
@@ -73,20 +69,19 @@ public class HomeActivity extends ThomasActivity {
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
-        vpContent.setScroll(false);
-        vpContent.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-            @NonNull
+        vpContent.setAdapter(new FragmentStateAdapter(mActivity) {
             @Override
-            public Fragment getItem(int position) {
-                return fragments.get(position);
-            }
-
-            @Override
-            public int getCount() {
+            public int getItemCount() {
                 return fragments.size();
             }
 
+            @NonNull
+            @Override
+            public Fragment createFragment(int position) {
+                return fragments.get(position);
+            }
         });
+        vpContent.setUserInputEnabled(false);
         vpContent.setOffscreenPageLimit(fragments.size());
         navView.setOnNavigationItemSelectedListener(menuItem -> {
             if (menuItem.getItemId() == R.id.navigation_news) {
