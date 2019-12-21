@@ -49,8 +49,8 @@ ext {
 
             "video-player"            : 'cn.jzvd:jiaozivideoplayer:7.0.5',
 
-            "doraemonkit"             : 'com.didichuxing.doraemonkit:doraemonkit:1.2.1',
-            "doraemonkit-no-op"       : 'com.didichuxing.doraemonkit:doraemonkit-no-op:1.2.1'
+            "doraemonkit"             : 'com.didichuxing.doraemonkit:doraemonkit:2.2.1',
+            "doraemonkit-no-op"       : 'com.didichuxing.doraemonkit:doraemonkit-no-op:2.2.1'
 
     ]
 }

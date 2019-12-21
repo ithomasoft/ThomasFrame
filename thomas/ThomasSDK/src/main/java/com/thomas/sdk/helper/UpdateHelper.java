@@ -1,6 +1,5 @@
 package com.thomas.sdk.helper;
 
-import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 
 /**

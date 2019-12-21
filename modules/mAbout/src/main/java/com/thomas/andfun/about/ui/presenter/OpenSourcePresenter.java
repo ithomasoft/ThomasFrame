@@ -1,8 +1,8 @@
 package com.thomas.andfun.about.ui.presenter;
 
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.about.ui.contract.OpenSourceContract;
 import com.thomas.andfun.about.ui.model.OpenSourceModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 
 /**
  * @author Thomas

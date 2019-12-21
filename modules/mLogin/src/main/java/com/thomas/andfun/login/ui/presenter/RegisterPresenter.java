@@ -1,9 +1,9 @@
 package com.thomas.andfun.login.ui.presenter;
 
 import com.thomas.andfun.login.bean.LoginBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.login.ui.contract.RegisterContract;
 import com.thomas.andfun.login.ui.model.RegisterModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 /**

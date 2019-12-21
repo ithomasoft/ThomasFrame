@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.thomas.andfun.user.R;
-import com.thomas.andfun.user.bean.CollectionListBean;
 import com.thomas.andfun.user.bean.ShareListBean;
 import com.thomas.sdk.helper.ImageHelper;
 

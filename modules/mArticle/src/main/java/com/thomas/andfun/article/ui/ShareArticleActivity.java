@@ -8,7 +8,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.allen.library.SuperButton;
@@ -25,7 +24,6 @@ import com.thomas.sdk.ui.ThomasMvpActivity;
 import com.thomas.service.RouterHub;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author Thomas

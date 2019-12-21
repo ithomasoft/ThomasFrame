@@ -2,9 +2,9 @@ package com.thomas.andfun.home.fragment.presenter;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.thomas.andfun.home.bean.KnowledgeBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.home.fragment.contract.KnowledgeContract;
 import com.thomas.andfun.home.fragment.model.KnowledgeModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 import java.util.ArrayList;

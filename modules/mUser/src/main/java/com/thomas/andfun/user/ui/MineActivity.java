@@ -17,11 +17,11 @@ import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.dialog.NormalDialog;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.service.RouterHub;
 import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
+import com.thomas.service.RouterHub;
 
 import butterknife.BindView;
 

@@ -1,9 +1,9 @@
 package com.thomas.andfun.article.ui.presenter;
 
 import com.thomas.andfun.article.bean.SquareBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.article.ui.contract.SquareContract;
 import com.thomas.andfun.article.ui.model.SquareModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 /**

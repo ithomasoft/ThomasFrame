@@ -15,7 +15,6 @@ import com.yanzhenjie.kalle.OkHttpConnectFactory;
 import com.yanzhenjie.kalle.Params;
 import com.yanzhenjie.kalle.connect.RealTimeNetwork;
 import com.yanzhenjie.kalle.cookie.DBCookieStore;
-import com.yanzhenjie.kalle.simple.cache.CacheMode;
 import com.yanzhenjie.kalle.simple.cache.DiskCacheStore;
 
 import java.util.concurrent.TimeUnit;

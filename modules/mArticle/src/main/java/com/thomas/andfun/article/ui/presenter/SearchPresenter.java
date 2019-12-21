@@ -1,9 +1,9 @@
 package com.thomas.andfun.article.ui.presenter;
 
 import com.thomas.andfun.article.bean.HotKeyBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.article.ui.contract.SearchContract;
 import com.thomas.andfun.article.ui.model.SearchModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 import java.util.List;

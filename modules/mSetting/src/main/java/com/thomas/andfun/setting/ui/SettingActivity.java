@@ -10,24 +10,19 @@ import com.allen.library.SuperTextView;
 import com.thomas.andfun.setting.R;
 import com.thomas.andfun.setting.R2;
 import com.thomas.core.utils.ActivityUtils;
-import com.thomas.core.utils.AppUtils;
 import com.thomas.core.utils.CleanUtils;
 import com.thomas.core.utils.FileUtils;
-import com.thomas.core.utils.LogUtils;
 import com.thomas.core.utils.PathUtils;
-import com.thomas.core.utils.SizeUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.core.utils.Utils;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.LoadingHelper;
 import com.thomas.sdk.helper.UpdateHelper;
-import com.thomas.sdk.helper.UserHelper;
 import com.thomas.sdk.ui.ThomasActivity;
 import com.thomas.service.RouterHub;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author Thomas

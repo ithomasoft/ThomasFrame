@@ -1,8 +1,8 @@
 package com.thomas.andfun.article.ui.presenter;
 
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.article.ui.contract.ShareArticleContract;
 import com.thomas.andfun.article.ui.model.ShareArticleModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 /**

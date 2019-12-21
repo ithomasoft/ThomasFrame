@@ -3,7 +3,6 @@ package com.thomas.andfun.scan.ui;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,20 +12,17 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.thomas.andfun.scan.R;
 import com.thomas.andfun.scan.R2;
 import com.thomas.core.utils.ActivityUtils;
-import com.thomas.core.utils.ScreenUtils;
 import com.thomas.core.utils.SizeUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.core.utils.Utils;
 import com.thomas.core.utils.VibrateUtils;
 import com.thomas.res.dialog.NormalDialog;
-import com.thomas.res.dialog.TipsDialog;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.ui.ThomasActivity;
 import com.thomas.service.RouterHub;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import me.devilsen.czxing.code.BarcodeFormat;
 import me.devilsen.czxing.view.ScanBoxView;
 import me.devilsen.czxing.view.ScanListener;

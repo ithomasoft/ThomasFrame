@@ -2,9 +2,9 @@ package com.thomas.andfun.home.fragment.presenter;
 
 import com.thomas.andfun.home.bean.BannerBean;
 import com.thomas.andfun.home.bean.NewsListBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.home.fragment.contract.NewsContract;
 import com.thomas.andfun.home.fragment.model.NewsModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 import java.util.List;

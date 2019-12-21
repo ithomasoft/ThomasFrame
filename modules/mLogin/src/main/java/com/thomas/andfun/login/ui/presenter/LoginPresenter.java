@@ -1,12 +1,10 @@
 package com.thomas.andfun.login.ui.presenter;
 
 import com.thomas.andfun.login.bean.LoginBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.login.ui.contract.LoginContract;
 import com.thomas.andfun.login.ui.model.LoginModel;
-import com.thomas.sdk.helper.HttpHelper;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
-import com.yanzhenjie.kalle.Params;
 
 /**
  * @author Thomas

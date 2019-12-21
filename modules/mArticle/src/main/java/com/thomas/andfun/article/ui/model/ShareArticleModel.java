@@ -1,6 +1,5 @@
 package com.thomas.andfun.article.ui.model;
 
-import com.thomas.andfun.article.ApiConstant;
 import com.thomas.andfun.article.ui.contract.ShareArticleContract;
 import com.thomas.sdk.helper.HttpHelper;
 import com.thomas.sdk.kalle.BaseThomasCallback;

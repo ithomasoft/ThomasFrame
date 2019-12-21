@@ -1,7 +1,5 @@
 package com.thomas.andfun.user.adapter;
 
-import android.text.TextUtils;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.text.HtmlCompat;

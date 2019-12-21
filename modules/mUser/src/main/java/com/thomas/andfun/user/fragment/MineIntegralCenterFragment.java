@@ -7,7 +7,6 @@ import android.view.animation.Animation;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.allen.library.SuperButton;
 import com.thomas.andfun.user.R;
 import com.thomas.andfun.user.bean.IntegralBean;
 

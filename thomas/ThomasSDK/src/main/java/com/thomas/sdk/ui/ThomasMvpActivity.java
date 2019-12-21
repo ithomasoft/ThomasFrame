@@ -1,7 +1,5 @@
 package com.thomas.sdk.ui;
 
-import android.os.Bundle;
-
 import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.core.mvp.IBaseMvpView;
 

@@ -16,7 +16,6 @@ import com.thomas.sdk.ui.ThomasActivity;
 import com.thomas.service.RouterHub;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * @author Thomas

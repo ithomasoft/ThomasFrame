@@ -2,20 +2,18 @@ package com.thomas.andfun.about.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import android.view.View;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.thomas.andfun.about.R;
+import com.thomas.andfun.about.R2;
 import com.thomas.core.utils.ActivityUtils;
-import com.thomas.core.utils.ResourceUtils;
 import com.thomas.core.utils.SpanUtils;
 import com.thomas.res.widget.ThomasTitleBar;
 import com.thomas.sdk.ui.ThomasActivity;
-import com.thomas.andfun.about.R;
-import com.thomas.andfun.about.R2;
 import com.thomas.service.RouterHub;
 
 import butterknife.BindView;

@@ -1,6 +1,5 @@
 package com.thomas.andfun.article.ui.contract;
 
-import com.thomas.andfun.article.bean.KnowledgeBean;
 import com.thomas.andfun.article.bean.SquareBean;
 import com.thomas.core.mvp.IBaseMvpModel;
 import com.thomas.core.mvp.IBaseMvpView;

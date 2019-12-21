@@ -1,8 +1,8 @@
 package com.thomas.andfun.home.fragment.presenter;
 
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.home.fragment.contract.MineContract;
 import com.thomas.andfun.home.fragment.model.MineModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 
 /**
  * @author Thomas

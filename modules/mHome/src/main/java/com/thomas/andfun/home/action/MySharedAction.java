@@ -1,8 +1,8 @@
 package com.thomas.andfun.home.action;
 
-import com.thomas.service.RouterHub;
 import com.thomas.sdk.delay.Action;
 import com.thomas.sdk.helper.ARouterHelper;
+import com.thomas.service.RouterHub;
 
 /**
  * @author Thomas

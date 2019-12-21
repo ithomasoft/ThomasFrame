@@ -1,9 +1,9 @@
 package com.thomas.andfun.article.ui.presenter;
 
 import com.thomas.andfun.article.bean.ResultBean;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.article.ui.contract.ResultContract;
 import com.thomas.andfun.article.ui.model.ResultModel;
+import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.sdk.kalle.BaseThomasCallback;
 
 /**
