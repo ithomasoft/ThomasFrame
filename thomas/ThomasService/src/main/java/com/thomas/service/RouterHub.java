@@ -120,5 +120,8 @@ public interface RouterHub {
      * 扫码页
      */
     String ROUTER_SCAN = "/scan/home";
-
+    /**
+     * 扫码历史记录页
+     */
+    String ROUTER_SCAN_HISTORY = "/scan/history";
 }

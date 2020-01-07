@@ -5,12 +5,14 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewTreeObserver;
 
 import androidx.annotation.NonNull;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.thomas.andfun.scan.R;
 import com.thomas.andfun.scan.R2;
+import com.thomas.andfun.scan.helper.ResultHelper;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.SizeUtils;
 import com.thomas.core.utils.ToastUtils;
@@ -18,6 +20,7 @@ import com.thomas.core.utils.Utils;
 import com.thomas.core.utils.VibrateUtils;
 import com.thomas.res.dialog.NormalDialog;
 import com.thomas.res.widget.ThomasTitleBar;
+import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.DialogHelper;
 import com.thomas.sdk.ui.ThomasActivity;
 import com.thomas.service.RouterHub;
@@ -50,7 +53,6 @@ public class ScanActivity extends ThomasActivity {
 
     @Override
     public void initData(@NonNull Bundle bundle) {
-
     }
 
     @Override
@@ -64,6 +66,10 @@ public class ScanActivity extends ThomasActivity {
             if (action == ThomasTitleBar.ACTION_LEFT_BUTTON) {
                 ActivityUtils.finishActivity(mActivity);
             }
+            if (action == ThomasTitleBar.ACTION_RIGHT_BUTTON) {
+                ARouterHelper.startActivity(RouterHub.ROUTER_SCAN_HISTORY);
+                ActivityUtils.finishActivity(mActivity, false);
+            }
         });
         ScanBoxView scanBoxView = scanView.getScanBox();
         scanBoxView.setBoxTopOffset(-SizeUtils.dp2px(120));
@@ -72,6 +78,7 @@ public class ScanActivity extends ThomasActivity {
             @Override
             public void onScanSuccess(String result, BarcodeFormat format) {
                 VibrateUtils.vibrate(300);
+                ResultHelper.add(result);
                 parseResult(result);
             }
 

@@ -19,7 +19,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:leftImageResource="@drawable/ic_arrow_back"
         app:leftType="imageButton"
-        app:rightType="none"
+        app:rightType="imageButton"
+        app:rightImageResource="@drawable/ic_history"
         app:titleBarBackgroundColor="@color/thomas_color_app_title_background" />
 
     <me.devilsen.czxing.view.ScanView

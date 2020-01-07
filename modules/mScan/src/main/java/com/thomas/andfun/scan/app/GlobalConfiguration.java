@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.thomas.sdk.arms.ConfigModule;
 
+import org.litepal.LitePal;
+
 /**
  * ================================================
  *
@@ -18,6 +20,7 @@ import com.thomas.sdk.arms.ConfigModule;
 public class GlobalConfiguration implements ConfigModule {
     @Override
     public void onCreate(Application application) {
-
+        //初始化数据库框架，目前只有扫码模块用到了数据库
+        LitePal.initialize(application);
     }
 }

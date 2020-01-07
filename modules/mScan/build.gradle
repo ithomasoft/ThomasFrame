@@ -35,4 +35,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 	implementation project(path: ':thomas:ThomasSDK')
     implementation 'me.devilsen:CZXing:0.9.13'
+    implementation 'org.litepal.android:java:3.0.0'
 }
