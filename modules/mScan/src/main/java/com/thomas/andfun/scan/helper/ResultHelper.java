@@ -7,7 +7,6 @@ import com.thomas.core.utils.TimeUtils;
 import org.litepal.LitePal;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author Thomas

@@ -26,7 +26,7 @@ public class GlobalConfiguration implements ModuleConfig {
 
     @Override
     public void injectAppLifecycle(@NonNull Context context, @NonNull List<AppLifecycles> lifecycles) {
-
+        lifecycles.add(new AppLifecyclesImpl());
     }
 
     @Override

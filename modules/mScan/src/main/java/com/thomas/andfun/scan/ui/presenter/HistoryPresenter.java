@@ -1,13 +1,8 @@
 package com.thomas.andfun.scan.ui.presenter;
 
-import com.thomas.andfun.scan.entity.ScanResult;
-import com.thomas.core.mvp.BaseMvpPresenter;
 import com.thomas.andfun.scan.ui.contract.HistoryContract;
 import com.thomas.andfun.scan.ui.model.HistoryModel;
-
-import org.litepal.crud.callback.FindMultiCallback;
-
-import java.util.List;
+import com.thomas.core.mvp.BaseMvpPresenter;
 
 /**
  * @author Thomas

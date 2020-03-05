@@ -8,7 +8,6 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.tencent.bugly.Bugly;
-import com.thomas.core.BaseApplication;
 import com.thomas.core.component.ComponentApplication;
 import com.thomas.core.utils.AppUtils;
 import com.thomas.sdk.adapter.StatusAdapter;

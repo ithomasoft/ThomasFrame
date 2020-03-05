@@ -59,7 +59,7 @@
             android:value="" />
         <meta-data
             android:name="com.thomas.andfun.article.app.GlobalConfiguration"
-            android:value="ConfigModule" />
+            android:value="ModuleConfig" />
     </application>
 
 </manifest>

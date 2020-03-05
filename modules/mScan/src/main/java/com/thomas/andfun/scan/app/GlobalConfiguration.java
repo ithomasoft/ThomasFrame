@@ -3,14 +3,11 @@ package com.thomas.andfun.scan.app;
 import android.app.Application;
 import android.content.Context;
 
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 
 import com.thomas.core.component.AppLifecycles;
 import com.thomas.core.component.ModuleConfig;
-
-import org.litepal.LitePal;
 
 import java.util.List;
 

@@ -1,32 +1,28 @@
 package com.thomas.andfun.scan.ui;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.thomas.andfun.scan.adapter.ResultAdapter;
-import com.thomas.andfun.scan.entity.ScanResult;
-import com.thomas.core.utils.ActivityUtils;
-import com.thomas.core.utils.ToastUtils;
-import com.thomas.core.utils.Utils;
-import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.helper.ARouterHelper;
-import com.thomas.sdk.helper.StatusHelper;
-import com.thomas.sdk.ui.ThomasMvpActivity;
-import com.thomas.andfun.scan.ui.contract.HistoryContract;
-import com.thomas.andfun.scan.ui.presenter.HistoryPresenter;
 import com.thomas.andfun.scan.R;
 import com.thomas.andfun.scan.R2;
+import com.thomas.andfun.scan.adapter.ResultAdapter;
+import com.thomas.andfun.scan.entity.ScanResult;
+import com.thomas.andfun.scan.ui.contract.HistoryContract;
+import com.thomas.andfun.scan.ui.presenter.HistoryPresenter;
+import com.thomas.core.utils.ActivityUtils;
+import com.thomas.core.utils.Utils;
+import com.thomas.res.widget.ThomasTitleBar;
+import com.thomas.sdk.helper.StatusHelper;
+import com.thomas.sdk.ui.ThomasMvpActivity;
 import com.thomas.service.RouterHub;
-
 
 import java.util.ArrayList;
 import java.util.List;
