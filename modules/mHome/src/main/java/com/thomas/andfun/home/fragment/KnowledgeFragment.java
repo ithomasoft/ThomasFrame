@@ -107,7 +107,7 @@ public class KnowledgeFragment extends LazyThomasMvpFragment<KnowledgePresenter>
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         holder.withData(failed).withRetry(() -> presenter.getKnowledge()).showLoadFailed();
     }
 

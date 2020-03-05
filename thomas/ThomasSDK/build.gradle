@@ -11,7 +11,7 @@ android {
 dependencies {
     api project(path: ':thomas:ThomasRes')
     api project(path: ':thomas:ThomasService')
-    api 'com.github.ithomasoft:ThomasCore:1.1.3'
+    api 'com.github.ithomasoft:ThomasCore:1.2.6'
     api rootProject.ext.dependencies["appcompat"]
     api rootProject.ext.dependencies["constraint-layout"]
     api rootProject.ext.dependencies["eventbus"]

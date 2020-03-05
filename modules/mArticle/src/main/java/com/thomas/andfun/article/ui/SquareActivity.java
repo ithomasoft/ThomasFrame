@@ -19,10 +19,10 @@ import com.thomas.andfun.article.bean.SquareBean;
 import com.thomas.andfun.article.ui.contract.SquareContract;
 import com.thomas.andfun.article.ui.presenter.SquarePresenter;
 import com.thomas.andfun.article.valid.LoginValid;
+import com.thomas.core.delay.SingleCall;
 import com.thomas.core.utils.ActivityUtils;
 import com.thomas.core.utils.ToastUtils;
 import com.thomas.res.widget.ThomasTitleBar;
-import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.StatusHelper;
 import com.thomas.sdk.ui.ThomasMvpActivity;
@@ -117,7 +117,7 @@ public class SquareActivity extends ThomasMvpActivity<SquarePresenter> implement
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         smartRefreshLayout.finishRefresh(false);
         smartRefreshLayout.finishLoadMore(false);
         if (page == 0) {

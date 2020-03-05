@@ -64,7 +64,7 @@ public class OpenSourceActivity extends ThomasMvpActivity<OpenSourcePresenter> i
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
 
     }
 

@@ -118,7 +118,7 @@ public class ShareArticleActivity extends ThomasMvpActivity<ShareArticlePresente
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         ToastUtils.showShort(failed);
     }
 

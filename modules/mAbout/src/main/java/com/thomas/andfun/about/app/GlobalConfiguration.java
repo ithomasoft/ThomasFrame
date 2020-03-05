@@ -1,8 +1,15 @@
 package com.thomas.andfun.about.app;
 
 import android.app.Application;
+import android.content.Context;
 
-import com.thomas.sdk.arms.ConfigModule;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+
+import com.thomas.core.component.AppLifecycles;
+import com.thomas.core.component.ModuleConfig;
+
+import java.util.List;
 
 /**
  * ================================================
@@ -15,9 +22,20 @@ import com.thomas.sdk.arms.ConfigModule;
  * @updatelog
  * @since ================================================
  */
-public class GlobalConfiguration implements ConfigModule {
+public class GlobalConfiguration implements ModuleConfig {
+
     @Override
-    public void onCreate(Application application) {
+    public void injectAppLifecycle(@NonNull Context context, @NonNull List<AppLifecycles> lifecycles) {
+
+    }
+
+    @Override
+    public void injectActivityLifecycle(@NonNull Context context, @NonNull List<Application.ActivityLifecycleCallbacks> lifecycles) {
+
+    }
+
+    @Override
+    public void injectFragmentLifecycle(@NonNull Context context, @NonNull List<FragmentManager.FragmentLifecycleCallbacks> lifecycles) {
 
     }
 }

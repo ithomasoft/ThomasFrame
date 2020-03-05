@@ -35,7 +35,7 @@ public class RegisterPresenter extends BaseMvpPresenter<RegisterContract.Model, 
             @Override
             protected void onFailed(String failed) {
                 if (isViewAttached()) {
-                    getView().onFailed(failed);
+                    getView().onFailed(0, failed);
                 }
             }
         });

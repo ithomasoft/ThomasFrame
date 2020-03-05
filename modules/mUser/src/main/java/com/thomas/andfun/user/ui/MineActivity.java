@@ -89,7 +89,7 @@ public class MineActivity extends ThomasMvpActivity<MinePresenter> implements Mi
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         holder.withData(failed).showLoadFailed();
     }
 

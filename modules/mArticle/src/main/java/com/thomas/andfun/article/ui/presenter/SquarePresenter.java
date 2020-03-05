@@ -39,7 +39,7 @@ public class SquarePresenter extends BaseMvpPresenter<SquareContract.Model, Squa
             @Override
             protected void onFailed(String failed) {
                 if (isViewAttached()) {
-                    getView().onFailed(failed);
+                    getView().onFailed(0, failed);
                 }
             }
         });

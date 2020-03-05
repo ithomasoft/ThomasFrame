@@ -135,7 +135,7 @@ public class CollectionActivity extends ThomasMvpActivity<CollectionPresenter> i
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         smartRefreshLayout.finishRefresh(false);
         smartRefreshLayout.finishLoadMore(false);
         if (page == 0) {

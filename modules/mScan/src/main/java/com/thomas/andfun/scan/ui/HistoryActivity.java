@@ -113,7 +113,7 @@ public class HistoryActivity extends ThomasMvpActivity<HistoryPresenter> impleme
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         smartRefreshLayout.finishRefresh(false);
         holder.withData(failed).showLoadFailed();
     }

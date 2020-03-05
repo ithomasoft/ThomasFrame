@@ -68,7 +68,7 @@ public class NewsPresenter extends BaseMvpPresenter<NewsContract.Model, NewsCont
             @Override
             protected void onFailed(String failed) {
                 if (isViewAttached()) {
-                    getView().onFailed(failed);
+                    getView().onFailed(0, failed);
                 }
             }
         });

@@ -39,7 +39,7 @@ public class SharePresenter extends BaseMvpPresenter<ShareContract.Model, ShareC
             @Override
             protected void onFailed(String failed) {
                 if (isViewAttached()) {
-                    getView().onFailed(failed);
+                    getView().onFailed(0, failed);
                 }
             }
         });

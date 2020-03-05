@@ -1,6 +1,6 @@
 package com.thomas.andfun.article.action;
 
-import com.thomas.sdk.delay.Action;
+import com.thomas.core.delay.Action;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.service.RouterHub;
 

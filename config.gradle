@@ -47,7 +47,7 @@ ext {
             "lottie"                  : 'com.airbnb.android:lottie:3.1.0',
             "mapbox"                  : 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.3.0',
 
-            "video-player"            : 'cn.jzvd:jiaozivideoplayer:7.0.5',
+            "video-player"            : 'cn.jzvd:jiaozivideoplayer:7.2.1',
 
             "doraemonkit"             : 'com.didichuxing.doraemonkit:doraemonkit:2.2.1',
             "doraemonkit-no-op"       : 'com.didichuxing.doraemonkit:doraemonkit-no-op:2.2.1'

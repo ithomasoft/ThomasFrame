@@ -9,16 +9,11 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.tencent.bugly.Bugly;
 import com.thomas.core.BaseApplication;
+import com.thomas.core.component.ComponentApplication;
 import com.thomas.core.utils.AppUtils;
-import com.thomas.core.utils.ProcessUtils;
-import com.thomas.core.utils.Utils;
 import com.thomas.sdk.adapter.StatusAdapter;
-import com.thomas.sdk.arms.ConfigModule;
-import com.thomas.sdk.arms.ManifestParser;
 import com.thomas.sdk.helper.HttpHelper;
 import com.thomas.sdk.helper.StatusHelper;
-
-import java.util.List;
 
 import skin.support.SkinCompatManager;
 import skin.support.app.SkinAppCompatViewInflater;
@@ -33,9 +28,7 @@ import skin.support.design.app.SkinMaterialViewInflater;
  * @updatelog
  * @since
  */
-public class Thomas extends BaseApplication {
-
-    private List<ConfigModule> mModules;
+public class Thomas extends ComponentApplication {
 
     static {
         //启用矢量图兼容
@@ -66,9 +59,6 @@ public class Thomas extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         DoraemonKit.install(this);
-        if (ProcessUtils.isMainProcess()) {
-            modulesApplicationInit();
-        }
     }
 
     @Override
@@ -118,18 +108,6 @@ public class Thomas extends BaseApplication {
             ARouter.openDebug();
         }
         ARouter.init(this);
-    }
-
-    /**
-     * 组件化开发中各个模块中需要进行初始化的操作
-     */
-    protected void modulesApplicationInit() {
-        //用反射, 将 AndroidManifest.xml 中带有 ConfigModule 标签的 class 转成对象集合（List<ConfigModule>）
-        mModules = new ManifestParser(Utils.getApp()).parse();
-        //遍历之前获得的集合, 执行每一个 ConfigModule 实现类的某些方法
-        for (ConfigModule module : mModules) {
-            module.onCreate(Utils.getApp());
-        }
     }
 
     @Override

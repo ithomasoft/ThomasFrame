@@ -40,7 +40,7 @@ public class ProjectCatePresenter extends BaseMvpPresenter<ProjectCateContract.M
             @Override
             protected void onFailed(String failed) {
                 if (isViewAttached()) {
-                    getView().onFailed(failed);
+                    getView().onFailed(0, failed);
                 }
             }
         });

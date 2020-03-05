@@ -99,7 +99,7 @@ public class ProjectCateFragment extends LazyThomasMvpFragment<ProjectCatePresen
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         holder.withData(failed).withRetry(() -> presenter.getProject()).showLoadFailed();
     }
 

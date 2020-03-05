@@ -65,7 +65,7 @@ public class ProductsActivity extends ThomasMvpActivity<ProductsPresenter> imple
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
 
     }
 

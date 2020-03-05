@@ -52,7 +52,7 @@ public class KnowledgePresenter extends BaseMvpPresenter<KnowledgeContract.Model
             @Override
             protected void onFailed(String failed) {
                 if (isViewAttached()) {
-                    getView().onFailed(failed);
+                    getView().onFailed(0, failed);
                 }
             }
         });

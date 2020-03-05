@@ -15,10 +15,10 @@ import com.thomas.andfun.home.fragment.contract.MineContract;
 import com.thomas.andfun.home.fragment.presenter.MinePresenter;
 import com.thomas.andfun.home.valid.LoginValid;
 import com.thomas.core.constant.PermissionConstants;
+import com.thomas.core.delay.SingleCall;
 import com.thomas.core.utils.BarUtils;
 import com.thomas.core.utils.PermissionUtils;
 import com.thomas.core.utils.ToastUtils;
-import com.thomas.sdk.delay.SingleCall;
 import com.thomas.sdk.helper.ARouterHelper;
 import com.thomas.sdk.helper.ImageHelper;
 import com.thomas.sdk.helper.UserHelper;
@@ -152,7 +152,7 @@ public class MineFragment extends LazyThomasMvpFragment<MinePresenter> implement
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
 
     }
 }

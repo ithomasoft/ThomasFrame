@@ -100,7 +100,7 @@ public class SearchActivity extends ThomasMvpActivity<SearchPresenter> implement
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
 
     }
 

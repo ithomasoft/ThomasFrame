@@ -116,7 +116,7 @@ public class IntegralActivity extends ThomasMvpActivity<IntegralPresenter> imple
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         smartRefreshLayout.finishRefresh(false);
         smartRefreshLayout.finishLoadMore(false);
         if (page == 1) {

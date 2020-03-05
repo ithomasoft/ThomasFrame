@@ -180,7 +180,7 @@ public class NewsFragment extends LazyThomasMvpFragment<NewsPresenter> implement
     }
 
     @Override
-    public void onFailed(String failed) {
+    public void onFailed(Object tag, String failed) {
         smartRefreshLayout.finishRefresh(false);
         smartRefreshLayout.finishLoadMore(false);
         if (page == 0) {
